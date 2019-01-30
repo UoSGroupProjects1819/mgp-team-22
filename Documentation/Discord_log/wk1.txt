@@ -1,0 +1,3 @@
+3:04 PM] Sean: this channel will be used for organising meetings/other communication and the conversations will be screenshotted to put on github as evidence
+[5:02 PM] Sean: I've set tasks for the week to complete a brief sheet each with an initial idea, which we will discuss on wednesday.
+[10:46 PM] Alex: github is up and about to be fully populated, gitignore is set up for unity but this can change if needed.
