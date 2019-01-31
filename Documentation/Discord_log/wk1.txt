@@ -1,3 +1,16 @@
-3:04 PM] Sean: this channel will be used for organising meetings/other communication and the conversations will be screenshotted to put on github as evidence
+[3:04 PM] Sean: this channel will be used for organising meetings/other communication and the conversations will be screenshotted to put on github as evidence
 [5:02 PM] Sean: I've set tasks for the week to complete a brief sheet each with an initial idea, which we will discuss on wednesday.
 [10:46 PM] Alex: github is up and about to be fully populated, gitignore is set up for unity but this can change if needed.
+[11:02 PM] Alex: https://github.com/UoSGroupProjects1819/mgp-team-22/
+
+@Britney , @Joshua  please can you click the link and join when you get a chance :)
+
+if you need a hand with github,
+I'll be in uni and not in lectures 
+ Thursday 10:00 until 16:00
+ Friday        10:00 until 13:00
+GitHub
+UoSGroupProjects1819/mgp-team-22
+mgp-team-22 created by GitHub Classroom. Contribute to UoSGroupProjects1819/mgp-team-22 development by creating an account on GitHub.
+
+[7:33 AM] Britney: Will do!
