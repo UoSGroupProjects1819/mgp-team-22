@@ -33,8 +33,10 @@ public class PlayerController_Backup : MonoBehaviour
     {
         //this set of code is for the basic left/right movement of the player character
         float moveHorizontal = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(moveHorizontal, 0f);
 
+        //directly sets velocity of Actor, this is tighter than adding a force
+        //and means if you stop holding a direction movement stops instantly
+        //uses deltaTime to prevent performance variation between computers
         rb2d.velocity = new Vector2 ((moveHorizontal * speed * Time.deltaTime), rb2d.velocity.y);
     }
 
