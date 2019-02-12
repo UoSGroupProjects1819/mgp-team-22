@@ -450,13 +450,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221177035214620850}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89c6f22538d181a4a9ae808c50af70aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1000
-  groundCheck: {fileID: 0}
+  jumpForce: 500
   jump: 0
   speed: 5
 --- !u!114 &1221177035214620853
@@ -466,7 +465,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221177035214620850}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ee26f42324ab1c48acb3ac196c24c2b, type: 3}
   m_Name: 
