@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour {
         {
             if (Input.GetKey(KeyCode.F))
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, );
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange );
 
             }
             timeBetweenAttack = startTimeBetweenAttack;
