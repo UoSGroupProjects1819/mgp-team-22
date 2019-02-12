@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float jumpForce = 1000f;
-    public Transform groundCheck;
-    private bool grounded = true;
+    public float jumpForce = 600f;
+   
+    
     public bool jump = false;
 
     public float speed;
@@ -21,9 +21,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+       
 
-        if (Input.GetButtonDown("space") && grounded)
+        if (Input.GetButtonDown("Jump"))
         {
             jump = true;
         }
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
         {
             rb2d.AddForce(new Vector2(0f, jumpForce));
             jump = false;
+            
         }
 
 
