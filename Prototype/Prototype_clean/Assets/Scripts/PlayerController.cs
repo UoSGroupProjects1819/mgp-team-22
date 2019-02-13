@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float jumpForce = 600f;
-   
+    public GameManager GameMan;
     
     public bool jump = false;
 
@@ -16,16 +16,22 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameMan = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb2d = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-       
+
 
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+        }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            GameMan.PauseGame();
         }
     }
 
