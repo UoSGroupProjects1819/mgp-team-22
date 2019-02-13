@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -170,6 +171,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7e086e33da43ee478268e0df6f9b75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerLocation: {fileID: 1221177035214620856}
+  Offset: {x: 0, y: 2.9, z: -10}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -455,9 +470,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c6f22538d181a4a9ae808c50af70aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 500
+  jumpForce: 250
   jump: 0
-  speed: 5
+  speed: 500
 --- !u!114 &1221177035214620853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +487,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   speed: 300
+--- !u!4 &1221177035214620856 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7584475608120671771, guid: 7d555d961b590fe48844629b7840bfae,
+    type: 3}
+  m_PrefabInstance: {fileID: 8935528104970903543}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1648146271300906453
 PrefabInstance:
   m_ObjectHideFlags: 0
