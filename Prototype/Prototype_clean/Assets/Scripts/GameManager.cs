@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public UIManager UIMan;
     //static GameObject uiManRef;
+    public Vector2 gravity;
 
     public void PauseGame()
     {
@@ -23,7 +24,8 @@ public class GameManager : MonoBehaviour
     {
         UIMan = GameObject.Find("UIManager").GetComponent<UIManager>();
         UIMan.SetGameManager(this);
-        // uiManRef = UIMan;
+
+        Physics2D.gravity = gravity;
 
 
     }
