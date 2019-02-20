@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float jumpForce = 600f;
+    public float jumpForce, MaxJump;
     public GameManager GameMan;
     
     public bool jump = false;
@@ -56,6 +56,11 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    void bounceMovement()
+    {
+        rb2d.AddForce(new Vector2(0f, jumpForce));
     }
     
 }

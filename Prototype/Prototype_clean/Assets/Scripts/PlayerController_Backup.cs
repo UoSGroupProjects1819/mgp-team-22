@@ -94,6 +94,11 @@ public class PlayerController_Backup : MonoBehaviour
         }
     }
 
+    public void bounceMovement()
+    {
+        rb2d.AddForce(new Vector2(0f, (jumpForce)),ForceMode2D.Impulse);
+    }
+
     //void Jump()
     //{
 
@@ -104,4 +109,4 @@ public class PlayerController_Backup : MonoBehaviour
     //    }
     //}
 
- }
+}
