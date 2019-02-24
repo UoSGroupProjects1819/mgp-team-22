@@ -96,7 +96,7 @@ public class PlayerController_Backup : MonoBehaviour
 
     public void bounceMovement()
     {
-        rb2d.AddForce(new Vector2(0f, (jumpForce)),ForceMode2D.Impulse);
+        rb2d.AddForce(new Vector2(0f, (jumpForce/3f)),ForceMode2D.Impulse);
     }
 
     //void Jump()
