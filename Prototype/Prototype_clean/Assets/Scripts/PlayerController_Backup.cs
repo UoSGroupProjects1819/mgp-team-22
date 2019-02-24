@@ -87,8 +87,8 @@ public class PlayerController_Backup : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        // checks if the player has left collision  with the ground or an enemy
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy")
+        // checks if the player has left collision  with the ground or an enemy when jumping (not walking off)
+        if (jumping && (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy"))
         {
             canJump = false;
         }
