@@ -5,7 +5,7 @@ using UnityEngine;
 public class RespawnManager : MonoBehaviour
 {
     private Transform playerTransform;
-    private Vector2 currentRespawn;
+    private Vector3 currentRespawn;
 
     private void Start()
     {
