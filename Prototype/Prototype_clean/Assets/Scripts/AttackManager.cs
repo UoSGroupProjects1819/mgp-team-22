@@ -96,7 +96,9 @@ public class AttackManager : MonoBehaviour
         {
             if (downAttack)
             {
+                print("bounce");
                 playerCont.bounceMovement();
+
             }
 
             else collision.gameObject.SetActive(false);
