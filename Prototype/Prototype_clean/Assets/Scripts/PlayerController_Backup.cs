@@ -10,18 +10,39 @@ public class PlayerController_Backup : MonoBehaviour
     //public Transform groundCheck; // removed to simplify
 
     private Rigidbody2D rb2d;
-    private float floorY, currentY, JumpTimer, holdTimer;
+    private AudioSource source;
+    public AudioClip jumpSound;
+    
+
+    private float floorY, JumpTimer, holdTimer; //currentY removed
     private float moveHorizontal, moveVertical;
 
-    private bool jumping;
+    private bool jumping;//, jumpSound;
    
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();     //get rigidbody
-        currentY = rb2d.transform.position.y;   //set currentY as the currentY value of the player
+                                                //   currentY = rb2d.transform.position.y;   //set currentY as the currentY value of the player - (removed as no longer needed) AM 26/2/2019
+
+        source = GetComponent<AudioSource>();
+      //  jumpSound = true;
+
+
     }
+
+    //public IEnumerator Jump()
+    //{
+    //    if (jumpSound)
+    //    {
+    //        jumpSFX.Play();
+    //        jumpSound = false;
+    //    }
+
+    //    yield return new WaitForSeconds(MaxJump+holdTime);
+    //    jumpSound = true;
+    //}
 
     private void Update()
     {
@@ -41,6 +62,9 @@ public class PlayerController_Backup : MonoBehaviour
         {
             moveVertical = jumpForce * Time.deltaTime;
             JumpTimer += Time.deltaTime;
+
+            //    StartCoroutine(Jump());
+         if (source.isPlaying == false)   source.PlayOneShot(jumpSound, 1f);
 
         }
 
@@ -73,7 +97,7 @@ public class PlayerController_Backup : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("TRIGGERED");
+      //  print("TRIGGERED");
 
         // checks if the player has collided with the ground or an enemy
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy")
