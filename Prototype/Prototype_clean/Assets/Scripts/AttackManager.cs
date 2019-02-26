@@ -101,10 +101,9 @@ public class AttackManager : MonoBehaviour
 
             }
 
-            else collision.gameObject.SetActive(false);
+         //   else collision.gameObject.SetActive(false);
 
         }
-
-   
+          
     }
 }
