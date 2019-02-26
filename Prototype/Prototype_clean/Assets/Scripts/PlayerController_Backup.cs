@@ -64,7 +64,7 @@ public class PlayerController_Backup : MonoBehaviour
             JumpTimer += Time.deltaTime;
 
             //    StartCoroutine(Jump());
-         if (source.isPlaying == false)   source.PlayOneShot(jumpSound, 1f);
+         if (source.isPlaying == false)   source.PlayOneShot(jumpSound, 0.5f);
 
         }
 
