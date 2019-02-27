@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public Button Resume;
     private GameManager gameMan;
 
+    public string ArtifactTrigger1, ArtifactTrigger2;
+
     public void SetGameManager(GameManager game)
     {
         gameMan = game;
@@ -28,6 +30,11 @@ public class UIManager : MonoBehaviour
         gameMan.UnPauseGame();
     }
 
+    public void ResetGame()
+    {
+        PlayerPrefs.SetInt(ArtifactTrigger1, 0);
+        PlayerPrefs.SetInt(ArtifactTrigger2, 0);
+    }
    
 
     // Start is called before the first frame update

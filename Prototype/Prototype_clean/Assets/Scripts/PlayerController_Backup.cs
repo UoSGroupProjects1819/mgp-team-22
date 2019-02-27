@@ -10,7 +10,7 @@ public class PlayerController_Backup : MonoBehaviour
     private Rigidbody2D rb2d;
     private AudioSource source;
     public AudioClip jumpSound;
-    
+    public GameManager GameMan;
 
     private float floorY, JumpTimer, holdTimer;
     private float moveHorizontal, moveVertical;
@@ -22,8 +22,8 @@ public class PlayerController_Backup : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();     //get rigidbody
-
         source = GetComponent<AudioSource>();
+        GameMan = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -31,6 +31,9 @@ public class PlayerController_Backup : MonoBehaviour
         if (Input.GetButtonDown("Jump") && canJump) jumping = true;
         
         if (Input.GetButtonUp ("Jump")) jumping = false;
+
+        if (Input.GetButtonDown("Cancel")) GameMan.PauseGame();
+        
 
     }
 
