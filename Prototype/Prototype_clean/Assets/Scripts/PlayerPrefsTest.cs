@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerPrefs : MonoBehaviour
+public class PlayerPrefsTest : MonoBehaviour
 {
     int Value;
 
