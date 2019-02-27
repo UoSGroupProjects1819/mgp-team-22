@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     {
         PlayerPrefs.SetInt(ArtifactTrigger1, 0);
         PlayerPrefs.SetInt(ArtifactTrigger2, 0);
+        PlayerPrefs.SetString("SpawnTarget", "Home");
     }
    
 
