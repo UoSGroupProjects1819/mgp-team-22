@@ -74,9 +74,9 @@ public class PlayerController_Backup : MonoBehaviour
         rb2d.AddForce(new Vector2(0f, moveVertical), ForceMode2D.Impulse);
         rb2d.velocity = new Vector2((moveHorizontal * speed * Time.deltaTime), rb2d.velocity.y);
 
-        if (moveHorizontal < 0) transF.localScale = new Vector2(1f ,transF.localScale.y);
+        //if (moveHorizontal < 0) transF.localScale = new Vector2(1f ,transF.localScale.y);
 
-        if (moveHorizontal > 0) transF.localScale = new Vector2(-1f,transF.localScale.y);
+        //if (moveHorizontal > 0) transF.localScale = new Vector2(-1f,transF.localScale.y);
 
     }
 
