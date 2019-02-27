@@ -11,6 +11,7 @@ public class PlayerController_Backup : MonoBehaviour
     private AudioSource source;
     public AudioClip jumpSound;
     public GameManager GameMan;
+    private Transform transF;
 
     private float floorY, JumpTimer, holdTimer;
     private float moveHorizontal, moveVertical;
@@ -23,6 +24,8 @@ public class PlayerController_Backup : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();     //get rigidbody
         source = GetComponent<AudioSource>();
+        transF = GetComponent<Transform>();
+
         GameMan = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -48,7 +51,7 @@ public class PlayerController_Backup : MonoBehaviour
             moveVertical = jumpForce * Time.deltaTime;
             JumpTimer += Time.deltaTime;
 
-         if (source.isPlaying == false)   source.PlayOneShot(jumpSound, 0.5f);
+            if (source.isPlaying == false) source.PlayOneShot(jumpSound, 0.5f);
 
         }
 
@@ -68,15 +71,18 @@ public class PlayerController_Backup : MonoBehaviour
         //directly sets velocity of Actor, this is tighter than adding a force
         //and means if you stop holding a direction movement stops instantly
         //uses deltaTime to prevent performance variation between computers
-        rb2d.AddForce (new Vector2(0f, moveVertical), ForceMode2D.Impulse);
-        rb2d.velocity = new Vector2 ((moveHorizontal * speed * Time.deltaTime), rb2d.velocity.y);
+        rb2d.AddForce(new Vector2(0f, moveVertical), ForceMode2D.Impulse);
+        rb2d.velocity = new Vector2((moveHorizontal * speed * Time.deltaTime), rb2d.velocity.y);
 
-   
+        if (moveHorizontal < 0) transF.localScale = new Vector2(1f ,transF.localScale.y);
+
+        if (moveHorizontal > 0) transF.localScale = new Vector2(-1f,transF.localScale.y);
+
     }
 
 
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+
+        private void OnTriggerEnter2D(Collider2D collision)
     {
 
         // checks if the player has collided with the ground or an enemy
