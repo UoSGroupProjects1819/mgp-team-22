@@ -52327,6 +52327,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5468325824728289116, guid: 7d555d961b590fe48844629b7840bfae,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 970093409, guid: 7d555d961b590fe48844629b7840bfae, type: 3}
       propertyPath: homeLocation
       value: 
@@ -52335,6 +52340,16 @@ PrefabInstance:
       propertyPath: TeleporterLocation
       value: 
       objectReference: {fileID: 654455217}
+    - target: {fileID: 1920880357598581018, guid: 7d555d961b590fe48844629b7840bfae,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827098925096857625, guid: 7d555d961b590fe48844629b7840bfae,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d555d961b590fe48844629b7840bfae, type: 3}
 --- !u!4 &9153635262113944598 stripped
