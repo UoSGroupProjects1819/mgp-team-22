@@ -6,15 +6,33 @@ using UnityEngine.UI;
 public class ArtifactTrigger : MonoBehaviour
 {
     public string Trigger1;
+    public AudioClip pickupSound;
+
+    public GameObject hum;
+
+    private AudioSource audioMan;
+
+    private void Start()
+    {
+        audioMan = GetComponent<AudioSource>();
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        GetComponentInChildren<ParticleSystem>().Play();
-        foreach(SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>()) sprite.enabled = false;
+        if (collision.gameObject.tag == ("Player"))
+        {
+            PlayerPrefs.SetInt(Trigger1, 1);
+            GetComponentInChildren<ParticleSystem>().Play();
+            foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>()) sprite.enabled = false;
 
-        GetComponentInChildren<Animator>().Play("artifact_text_fade");
+            GetComponentInChildren<Animator>().Play("artifact_text_fade");
+            GetComponent<CircleCollider2D>().enabled = false;
 
-        if (collision.gameObject.tag == ("Player")) PlayerPrefs.SetInt(Trigger1, 1);
-        GetComponent<CircleCollider2D>().enabled = false;
+            audioMan.PlayOneShot(pickupSound);
+
+            hum.gameObject.SetActive(false);
+        }
+
+
     }
 }
