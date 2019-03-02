@@ -34,8 +34,8 @@ public class PlatformManager : MonoBehaviour
         // Fraction of journey completed = current distance divided by total distance.
         float fracJourney = distCovered / journeyLength;
 
-        // Set our position as a fraction of the distance between the markers.
-        transform.position = Vector3.Lerp(startPoint.position, endPoint.position, fracJourney);
+        // Set our position as a fraction of the distance between the markers. Smooth lerp looks more natural
+        transform.position = Vector3.Lerp(startPoint.position, endPoint.position, Mathf.SmoothStep(0, 1, fracJourney));
 
         if (transform.position == startPoint.position) Reset();
         if (transform.position == endPoint.position) Reset();
