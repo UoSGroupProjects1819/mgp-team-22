@@ -9,6 +9,8 @@ TagManager:
   - Teleporter
   - attackBox
   - downAttack
+  - fallDeath
+  - Edge
   layers:
   - Default
   - TransparentFX

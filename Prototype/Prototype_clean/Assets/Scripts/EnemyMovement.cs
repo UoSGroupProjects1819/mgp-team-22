@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public float moveSpeed;
 
@@ -34,6 +34,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground") moveSpeed = moveSpeed * -1;
 
+        else if (collision.gameObject.tag == "Edge") moveSpeed = moveSpeed * -1;
     }
 
 
