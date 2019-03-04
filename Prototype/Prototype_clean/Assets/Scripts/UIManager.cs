@@ -49,6 +49,6 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hpText.text = "HP: " + gameMan.hp.ToString();
+        hpText.text = ("HP: " + gameMan.hp.ToString());
     }
 }

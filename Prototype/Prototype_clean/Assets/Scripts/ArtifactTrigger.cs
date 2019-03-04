@@ -11,10 +11,12 @@ public class ArtifactTrigger : MonoBehaviour
     public GameObject hum;
 
     private AudioSource audioMan;
+    private ParticleSystem particleSys;
 
     private void Start()
     {
         audioMan = GetComponent<AudioSource>();
+        particleSys = GetComponentInChildren<ParticleSystem>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -22,7 +24,7 @@ public class ArtifactTrigger : MonoBehaviour
         if (collision.gameObject.tag == ("Player"))
         {
             PlayerPrefs.SetInt(Trigger1, 1);
-            GetComponentInChildren<ParticleSystem>().Play();
+            particleSys.Play();
             foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>()) sprite.enabled = false;
 
             GetComponentInChildren<Animator>().Play("artifact_text_fade");

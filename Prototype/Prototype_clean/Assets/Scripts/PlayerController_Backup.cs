@@ -180,7 +180,7 @@ public class PlayerController_Backup : MonoBehaviour
 
     public IEnumerator damageFlash()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         invincible = false;
         anim.SetBool("takeDamage", false);
 

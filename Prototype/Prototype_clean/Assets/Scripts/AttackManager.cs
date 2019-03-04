@@ -12,7 +12,7 @@ public class AttackManager : MonoBehaviour
 
     private string inputD;
 
-    public GameObject up, down, left, right;
+    public GameObject up, down, side;
     public PlayerController_Backup playerCont;
 
     public IEnumerator attackTime()
@@ -20,8 +20,7 @@ public class AttackManager : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
         up.gameObject.SetActive(false);
         down.gameObject.SetActive(false);
-        left.gameObject.SetActive(false);
-        right.gameObject.SetActive(false);
+        side.gameObject.SetActive(false);
         canAttack = true;
         downAttack = false;
 
@@ -77,11 +76,11 @@ public class AttackManager : MonoBehaviour
                 return;
 
             case "left":
-                left.gameObject.SetActive(true);
+                side.gameObject.SetActive(true);
                 return;
 
             case "right":
-                right.gameObject.SetActive(true);
+                side.gameObject.SetActive(true);
                 return;
         }
 
