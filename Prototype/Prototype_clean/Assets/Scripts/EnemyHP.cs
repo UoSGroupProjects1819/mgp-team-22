@@ -33,13 +33,13 @@ public class EnemyHP : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
-     if (HP ==0)
+        if (HP == 0)
         {
             ParticleSys.Play();
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 
