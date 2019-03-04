@@ -17,6 +17,10 @@ public class RespawnManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Respawn")
         {
+            PlayerPrefs.SetFloat("respawn X", transform.position.x);
+            PlayerPrefs.SetFloat("respawn Y", transform.position.y);
+            PlayerPrefs.SetFloat("respawn Z", transform.position.z);
+
             currentRespawn = transform.position;
           //  print("spawn saved");
         }

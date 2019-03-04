@@ -16,6 +16,7 @@ public class TeleportManager : MonoBehaviour
         }
 
         PlayerPrefs.SetString("SpawnTarget", SpawnTargetName);
+
     }
 
 

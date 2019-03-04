@@ -5,19 +5,29 @@ using UnityEngine;
 public class PlayerController_Backup : MonoBehaviour
 {
     public float jumpForce, speed, MaxJump, holdTime;  // 
-    private bool canJump = false;   
+    private bool canJump = false;
 
     private Rigidbody2D rb2d;
     private AudioSource source;
     public AudioClip jumpSound;
     public GameManager GameMan;
     private Transform transF;
+    private Animator anim;
+
+    private SpriteRenderer spriteRen;
+
+    private Vector3 respawnPos;
 
     private float floorY, JumpTimer, holdTimer;
     private float moveHorizontal, moveVertical;
 
-    private bool jumping;
-   
+    private bool jumping, firing, invincible;
+
+    private int HP;
+
+    private Color Black = new Color(0f, 0f, 0f, 1f);
+    private Color White = new Color(1f, 1f, 1f, 1f);
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,20 +35,30 @@ public class PlayerController_Backup : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();     //get rigidbody
         source = GetComponent<AudioSource>();
         transF = GetComponent<Transform>();
+        spriteRen = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         GameMan = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        invincible = false;
+        HP = 3;
     }
 
     private void Update()
     {
         if (Input.GetButtonDown("Jump") && canJump) jumping = true;
-        
-        if (Input.GetButtonUp ("Jump")) jumping = false;
+
+        if (Input.GetButtonUp("Jump")) jumping = false;
 
         if (Input.GetButtonDown("Cancel")) GameMan.PauseGame();
-        
+
+        if (Input.GetButtonDown("Fire1")) firing = true;
+
+        if (Input.GetButtonUp("Fire1")) firing = false;
 
     }
+    
+ 
 
     // Update is called once per frame
     void FixedUpdate()
@@ -51,7 +71,7 @@ public class PlayerController_Backup : MonoBehaviour
             moveVertical = jumpForce * Time.deltaTime;
             JumpTimer += Time.deltaTime;
 
-            if (source.isPlaying == false) source.PlayOneShot(jumpSound, 0.5f);
+            if (source.isPlaying == false) source.PlayOneShot(jumpSound, 0.1f);
 
         }
 
@@ -74,6 +94,9 @@ public class PlayerController_Backup : MonoBehaviour
         rb2d.AddForce(new Vector2(0f, moveVertical), ForceMode2D.Impulse);
         rb2d.velocity = new Vector2((moveHorizontal * speed * Time.deltaTime), rb2d.velocity.y);
 
+        if (moveHorizontal < 0) anim.SetBool("isRight", false);
+        if (moveHorizontal >0) anim.SetBool("isRight", true);
+
         //if (moveHorizontal < 0) transF.localScale = new Vector2(1f ,transF.localScale.y);
 
         //if (moveHorizontal > 0) transF.localScale = new Vector2(-1f,transF.localScale.y);
@@ -82,7 +105,7 @@ public class PlayerController_Backup : MonoBehaviour
 
 
 
-        private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
         // checks if the player has collided with the ground or an enemy
@@ -104,8 +127,60 @@ public class PlayerController_Backup : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" && !firing)
+        {
+            takeDamage();
+        }
+    }
+
     public void bounceMovement()
     {
-        rb2d.AddForce(new Vector2(0f, (jumpForce/3f)),ForceMode2D.Impulse);
+        rb2d.AddForce(new Vector2(0f, (jumpForce / 3f)), ForceMode2D.Impulse);
+    }
+
+    void resetHP()
+    {
+        HP = 3;
+    }
+
+    void takeDamage()
+    {   
+
+        if (!invincible && HP > 0)
+        {
+            HP--;
+            invincible = true;
+            anim.SetBool("takeDamage", true);
+            StartCoroutine(damageFlash());
+        }
+    
+        if (HP <= 0)
+        {
+
+            getRespawn();
+            transform.position = respawnPos;
+            HP = 3;
+        }
+
+
+
+    }
+
+
+    void getRespawn()
+    {
+        respawnPos.x = PlayerPrefs.GetFloat("respawn X");
+        respawnPos.y = PlayerPrefs.GetFloat("respawn Y");
+        respawnPos.z = PlayerPrefs.GetFloat("respawn Z");
+    }
+
+    public IEnumerator damageFlash()
+    {
+        yield return new WaitForSeconds(1f);
+        invincible = false;
+        anim.SetBool("takeDamage", false);
+
     }
 }
