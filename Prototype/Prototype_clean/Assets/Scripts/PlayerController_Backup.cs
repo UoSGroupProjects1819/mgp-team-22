@@ -23,7 +23,7 @@ public class PlayerController_Backup : MonoBehaviour
 
     private bool jumping, firing, invincible;
 
-    public int HP;
+    private int HP;
 
     private Color Black = new Color(0f, 0f, 0f, 1f);
     private Color White = new Color(1f, 1f, 1f, 1f);
@@ -178,7 +178,7 @@ public class PlayerController_Backup : MonoBehaviour
 
     public IEnumerator damageFlash()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         invincible = false;
         anim.SetBool("takeDamage", false);
 

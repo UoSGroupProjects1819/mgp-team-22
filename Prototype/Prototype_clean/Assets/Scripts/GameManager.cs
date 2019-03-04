@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         UIMan = GameObject.Find("UIManager").GetComponent<UIManager>();
         UIMan.SetGameManager(this);
 
-     //   Physics2D.gravity = gravity;
+        Physics2D.gravity = gravity;
 
     }
 
