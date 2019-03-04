@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     private Transform playerTransform;
     public Transform homeLocation, TeleporterLocation;
 
-    private Vector3 HomePos, TelPos;
+    private Vector3 HomePos, TelPos, respawnPos;
 
     private string spawnTarget;
 
@@ -16,6 +16,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         playerTransform = GetComponent<Transform>();
+
         spawnTarget = PlayerPrefs.GetString("SpawnTarget");
 
 
@@ -29,10 +30,11 @@ public class SpawnManager : MonoBehaviour
         {
 
             case "Home":
-                playerTransform.position = HomePos;
-                PlayerPrefs.SetFloat("respawn X", transform.position.x);
-                PlayerPrefs.SetFloat("respawn Y", transform.position.y);
-                PlayerPrefs.SetFloat("respawn Z", transform.position.z);
+
+                respawnPos.x = PlayerPrefs.GetFloat("respawn X");
+                respawnPos.y = PlayerPrefs.GetFloat("respawn Y");
+                respawnPos.z = PlayerPrefs.GetFloat("respawn Z");
+                playerTransform.position = respawnPos;
                 return;
 
             case "Teleporter":
@@ -41,6 +43,8 @@ public class SpawnManager : MonoBehaviour
                 PlayerPrefs.SetFloat("respawn Y", transform.position.y);
                 PlayerPrefs.SetFloat("respawn Z", transform.position.z);
                 return;
+
+            
 
         }
 
