@@ -16,7 +16,6 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         playerTransform = GetComponent<Transform>();
-
         spawnTarget = PlayerPrefs.GetString("SpawnTarget");
 
 
@@ -30,11 +29,10 @@ public class SpawnManager : MonoBehaviour
         {
 
             case "Home":
-
-                respawnPos.x = PlayerPrefs.GetFloat("respawn X");
-                respawnPos.y = PlayerPrefs.GetFloat("respawn Y");
-                respawnPos.z = PlayerPrefs.GetFloat("respawn Z");
-                playerTransform.position = respawnPos;
+                playerTransform.position = HomePos;
+                PlayerPrefs.SetFloat("respawn X", transform.position.x);
+                PlayerPrefs.SetFloat("respawn Y", transform.position.y);
+                PlayerPrefs.SetFloat("respawn Z", transform.position.z);
                 return;
 
             case "Teleporter":
@@ -44,7 +42,12 @@ public class SpawnManager : MonoBehaviour
                 PlayerPrefs.SetFloat("respawn Z", transform.position.z);
                 return;
 
-            
+            case "Checkpoint":
+                respawnPos.x = PlayerPrefs.GetFloat("respawn X");
+                respawnPos.y = PlayerPrefs.GetFloat("respawn Y");
+                respawnPos.z = PlayerPrefs.GetFloat("respawn Z");
+                playerTransform.position = respawnPos;
+                return;
 
         }
 

@@ -20,6 +20,7 @@ public class RespawnManager : MonoBehaviour
             PlayerPrefs.SetFloat("respawn X", transform.position.x);
             PlayerPrefs.SetFloat("respawn Y", transform.position.y);
             PlayerPrefs.SetFloat("respawn Z", transform.position.z);
+            PlayerPrefs.SetString("SpawnTarget", "Checkpoint"); 
 
             currentRespawn = transform.position;
           //  print("spawn saved");
