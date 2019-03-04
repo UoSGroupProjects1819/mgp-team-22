@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public Button Resume;
     private GameManager gameMan;
 
+    public Text hpText;
+
     public string ArtifactTrigger1, ArtifactTrigger2;
 
     public void SetGameManager(GameManager game)
@@ -47,6 +49,6 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        hpText.text = "HP: " + gameMan.hp.ToString();
     }
 }

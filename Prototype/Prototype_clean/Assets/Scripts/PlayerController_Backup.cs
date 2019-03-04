@@ -41,7 +41,7 @@ public class PlayerController_Backup : MonoBehaviour
         GameMan = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         invincible = false;
-        HP = 3;
+        resetHP();
     }
 
     private void Update()
@@ -143,6 +143,7 @@ public class PlayerController_Backup : MonoBehaviour
     void resetHP()
     {
         HP = 3;
+        GameMan.hp = 3;
     }
 
     void takeDamage()
@@ -151,6 +152,7 @@ public class PlayerController_Backup : MonoBehaviour
         if (!invincible && HP > 0)
         {
             HP--;
+            GameMan.hp = HP;
             invincible = true;
             anim.SetBool("takeDamage", true);
             StartCoroutine(damageFlash());
@@ -161,7 +163,7 @@ public class PlayerController_Backup : MonoBehaviour
 
             getRespawn();
             transform.position = respawnPos;
-            HP = 3;
+            resetHP() ;
         }
 
 

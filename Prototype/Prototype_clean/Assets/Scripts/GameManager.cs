@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     //static GameObject uiManRef;
     public Vector2 gravity;
 
+    public int hp;
+
     public void PauseGame()
     {
         Time.timeScale = 0f;
