@@ -95,7 +95,7 @@ public class PlayerController_Backup : MonoBehaviour
         rb2d.velocity = new Vector2((moveHorizontal * speed * Time.deltaTime), rb2d.velocity.y);
 
         if (moveHorizontal < 0) anim.SetBool("isRight", false);
-        if (moveHorizontal >0) anim.SetBool("isRight", true);
+        if (moveHorizontal > 0) anim.SetBool("isRight", true);
 
         //if (moveHorizontal < 0) transF.localScale = new Vector2(1f ,transF.localScale.y);
 
@@ -165,9 +165,7 @@ public class PlayerController_Backup : MonoBehaviour
             transform.position = respawnPos;
             resetHP() ;
         }
-
-
-
+               
     }
 
 
