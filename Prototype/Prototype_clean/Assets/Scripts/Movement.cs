@@ -10,6 +10,10 @@ public class Movement : MonoBehaviour
     float maxJump;
 
     [SerializeField]
+    [Range(8, 10)]
+    float runSpeed;
+
+    [SerializeField]
     [Range(0, 1)]
     float minJump = 0.5f;
 
@@ -123,7 +127,12 @@ public class Movement : MonoBehaviour
         else
             fHorizontalVelocity *= Mathf.Pow(1f - DampingMaster, Time.deltaTime * 10f);
 
-        rigidBody.velocity = new Vector2(fHorizontalVelocity, rigidBody.velocity.y);
+        rigidBody.velocity = new Vector2((fHorizontalVelocity /10) * runSpeed, rigidBody.velocity.y);
+    }
+
+    public void bounceMovement()
+    {
+        rigidBody.AddForce(new Vector2(0f, (maxJump / 3f)), ForceMode2D.Impulse);
     }
 
     //private void FixedUpdate()
