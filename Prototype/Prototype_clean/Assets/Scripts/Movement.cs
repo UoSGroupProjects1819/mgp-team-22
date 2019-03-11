@@ -31,8 +31,6 @@ public class Movement : MonoBehaviour
     float edgeJump = 0.25f;
 
     [SerializeField]
-    float HorizontalAcceleration = 1;
-    [SerializeField]
     [Range(0, 1)]
     float DampingMaster = 0.5f;
     [SerializeField]
@@ -53,7 +51,7 @@ public class Movement : MonoBehaviour
         grounded = false;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
@@ -61,7 +59,15 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground") grounded = false;
     }
@@ -132,7 +138,7 @@ public class Movement : MonoBehaviour
 
     public void bounceMovement()
     {
-        rigidBody.AddForce(new Vector2(0f, (maxJump / 3f)), ForceMode2D.Impulse);
+        rigidBody.velocity = new Vector2(rigidBody.velocity.x, maxJump);
     }
 
     //private void FixedUpdate()

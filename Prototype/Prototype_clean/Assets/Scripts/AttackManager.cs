@@ -13,7 +13,7 @@ public class AttackManager : MonoBehaviour
     private string inputD;
 
     public GameObject up, down, side;
-    //public PlayerController_Backup playerCont;   // < add me
+   // public PlayerController_Backup playerCont;   // < add me
     public Movement playerCont;                    // < remove me
 
     public IEnumerator attackTime()
@@ -33,7 +33,7 @@ public class AttackManager : MonoBehaviour
     {
         canAttack = true;
         downAttack = false; 
-        playerCont = GameObject.Find("PlayerV2").GetComponent<Movement>();                          // < remove me
+        playerCont = GameObject.Find("PlayerCharacter").GetComponent<Movement>();                          // < remove me
        // playerCont = GameObject.Find("PlayerCharacter").GetComponent<PlayerController_Backup>();  // < add me
 
     }
