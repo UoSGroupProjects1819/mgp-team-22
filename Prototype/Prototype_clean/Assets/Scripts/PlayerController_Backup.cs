@@ -45,7 +45,7 @@ public class PlayerController_Backup : MonoBehaviour
 
     private void Update()
     {
-
+        if (Input.GetButtonDown("Cancel")) GameMan.PauseGame();
     }
     
  
