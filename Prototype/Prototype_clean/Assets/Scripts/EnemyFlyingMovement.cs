@@ -27,7 +27,7 @@ public class EnemyFlyingMovement : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        direction = new Vector2(1, 0);
+        direction = new Vector2(1, 1);
     }
 
     // Update is called once per frame
@@ -42,6 +42,11 @@ public class EnemyFlyingMovement : MonoBehaviour
         if(bouncer)
         {
             rigidbody.AddForce(direction);
+
+            if (rigidbody.velocity.magnitude > moveSpeed)
+            {
+                rigidbody.velocity = rigidbody.velocity.normalized * moveSpeed;
+            }
         }
     }
 
@@ -49,7 +54,16 @@ public class EnemyFlyingMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ground")
         {
-            direction = collision.GetContact(0).normal;
+            Debug.Log(collision.GetContact(0).normal);
+            if (collision.GetContact(0).normal.x != 0.0f)   //hits floor or ceiling
+            {
+                direction.x = -direction.x;
+            }
+            if (collision.GetContact(0).normal.y != 0.0f)   //hits wall
+            {
+                direction.y = -direction.y;
+            }
+            
         }
     }
 
