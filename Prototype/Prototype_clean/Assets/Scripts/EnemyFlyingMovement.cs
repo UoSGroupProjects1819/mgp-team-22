@@ -7,32 +7,27 @@ public class EnemyFlyingMovement : MonoBehaviour
 
     Rigidbody2D rigidBody;
 
-    public enum MovementType        //enum used for a nice dropdown in the editor
-    {
-        Bouncer,        //bounces when it hits a wall
-        Chaser
-    }
-    public MovementType movementType;
-
+    [Header("Enemy Types")]
     public bool bouncer;
     public bool chaser;
-
-    public bool chasing;
-
-    public Vector2 destination;
-    public Vector2 direction;
+    [Header("Movement Config")]
     public float moveAcceleration;
     public float moveSpeed;
+    [Header("Runtime Variables")]
+    public bool chasing;
+    public Vector2 direction;
+
 
     public GameObject player;
-
-    float updateTime;   //delay between destination updates when tracking player - we don't need to decide where we're going every frame
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        direction = new Vector2(1, 1);
+        if (bouncer)
+        {
+            direction = new Vector2(1, 1);                          //by default we start at an angle so the collisions bounce nicely
+        }
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -108,8 +103,6 @@ public class EnemyFlyingMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            
-
             if(chaser)
             {
                 chasing = true;
@@ -124,6 +117,12 @@ public class EnemyFlyingMovement : MonoBehaviour
             if (chaser)
             {
                 chasing = false;
+
+                if(!bouncer)    //bouncers want to keep moving without a target, but other types want to stay still
+                {
+                    direction = new Vector2(0, 0);
+                    rigidBody.velocity = new Vector2(0,0);
+                }
             }
         }
     }
