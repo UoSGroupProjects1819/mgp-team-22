@@ -42,7 +42,7 @@ public class EnemyFlyingMovement : MonoBehaviour
     {
         if(chasing)
         {
-            if (transform.position.x < player.transform.position.x)
+            if (transform.position.x < player.transform.position.x) //move towards the player on x
             {
                 direction.x = 1;
             }
@@ -50,7 +50,7 @@ public class EnemyFlyingMovement : MonoBehaviour
             {
                 direction.x = -1;
             }
-            if (transform.position.y < player.transform.position.y)
+            if (transform.position.y < player.transform.position.y) //and on y
             {
                 direction.y = 1;
             }
@@ -99,7 +99,7 @@ public class EnemyFlyingMovement : MonoBehaviour
         colCheck = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //player is in range to chase
     {
         if(collision.gameObject.tag == "Player")
         {
@@ -110,7 +110,7 @@ public class EnemyFlyingMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)  //player left range
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -127,8 +127,4 @@ public class EnemyFlyingMovement : MonoBehaviour
         }
     }
 
-    public IEnumerator MovingTargetUpdate()
-    {
-        yield return new WaitForSeconds(1f);
-    }
 }
