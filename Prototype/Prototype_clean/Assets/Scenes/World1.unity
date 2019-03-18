@@ -53679,6 +53679,7 @@ GameObject:
   - component: {fileID: 9199528785412270691}
   - component: {fileID: 4812065201025655448}
   - component: {fileID: 6059742296369108821}
+  - component: {fileID: 4812065201025655449}
   m_Layer: 0
   m_Name: FlyingEnemy Variant
   m_TagString: Enemy
@@ -53700,10 +53701,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementType: 0
   bouncer: 1
-  chaser: 0
+  chaser: 1
+  chasing: 0
   destination: {x: 0, y: 0}
   direction: {x: 0, y: 0}
-  moveSpeed: 0
+  moveAcceleration: 1
+  moveSpeed: 3
+  player: {fileID: 0}
+  colCheck: 1
+--- !u!58 &4812065201025655449
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812065201025655447}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 6
 --- !u!1001 &5163444650193114577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54105,7 +54126,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6732858741600275345
 MonoBehaviour:
