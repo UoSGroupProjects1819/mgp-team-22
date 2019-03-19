@@ -16,10 +16,11 @@ public class EnemyFlyingMovement : MonoBehaviour
     public bool isMovementRangeLimited;
     public float moveBoundaryMaxX;
     public float moveBoundaryMaxY;
+    public Vector3 moveBoundaryOrigin;
     [Header("Runtime Variables")]
     public bool chasing;
     public Vector2 direction;
-    public Vector2 startPoint;
+   
 
 
     public GameObject player;
@@ -32,14 +33,22 @@ public class EnemyFlyingMovement : MonoBehaviour
         {
             // Draw a semi transparent red square
             Gizmos.color = new Color(1, 0, 0, 0.3f);
-            Gizmos.DrawCube(transform.position, new Vector2(moveBoundaryMaxX, moveBoundaryMaxY));
+            Gizmos.DrawCube(transform.position + moveBoundaryOrigin, new Vector2(moveBoundaryMaxX, moveBoundaryMaxY));
+
+            if (moveBoundaryOrigin.x != 0 || moveBoundaryOrigin.y != 0)
+            {
+                Gizmos.DrawIcon(transform.position + moveBoundaryOrigin, "Start Point Gizmo.png", true);
+            }
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        startPoint = transform.position;
+
+        moveBoundaryOrigin = transform.position + moveBoundaryOrigin;   //allows for offset on movement range box centre
+
+
         rigidBody = GetComponent<Rigidbody2D>();
         if (bouncer)
         {
@@ -88,7 +97,7 @@ public class EnemyFlyingMovement : MonoBehaviour
         if (isMovementRangeLimited)
         {
             //enemy leaves its restricted range. this code is disgustingly huge. refactor at will
-            if (transform.position.x > startPoint.x + (moveBoundaryMaxX / 2))  //this is really clunky. interface uses box radius, while code has to use diameter. hence /2
+            if (transform.position.x > moveBoundaryOrigin.x + (moveBoundaryMaxX / 2))  //this is really clunky. interface uses box radius, while code has to use diameter. hence /2
             {
                 if (bouncer)
                 {
@@ -99,7 +108,7 @@ public class EnemyFlyingMovement : MonoBehaviour
                     chasing = false;
                 }
             }
-            if (transform.position.x < startPoint.x - (moveBoundaryMaxX / 2))   //less than min x
+            if (transform.position.x < moveBoundaryOrigin.x - (moveBoundaryMaxX / 2))   //less than min x
             {
                 if (bouncer)
                 {
@@ -110,7 +119,7 @@ public class EnemyFlyingMovement : MonoBehaviour
                     chasing = false;
                 }
             }
-            if (transform.position.y > startPoint.y + (moveBoundaryMaxY / 2))   //more than max y
+            if (transform.position.y > moveBoundaryOrigin.y + (moveBoundaryMaxY / 2))   //more than max y
             {
                 if (bouncer)
                 {
@@ -121,7 +130,7 @@ public class EnemyFlyingMovement : MonoBehaviour
                     chasing = false;
                 }
             }
-            if (transform.position.y < startPoint.y - (moveBoundaryMaxY / 2))   //less than min y
+            if (transform.position.y < moveBoundaryOrigin.y - (moveBoundaryMaxY / 2))   //less than min y
             {
                 if (bouncer)
                 {

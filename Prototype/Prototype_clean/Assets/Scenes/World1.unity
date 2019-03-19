@@ -6294,6 +6294,36 @@ PrefabInstance:
       propertyPath: chaser
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryMaxY
+      value: 11.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: startPoint.x
+      value: -4.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: startPoint.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryMaxX
+      value: 17.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryOrigin.x
+      value: -4.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryOrigin.y
+      value: 2.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
 --- !u!1001 &264980342
@@ -21789,6 +21819,36 @@ PrefabInstance:
       propertyPath: chaser
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryMaxX
+      value: 16.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryMaxY
+      value: 11.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: startPoint.x
+      value: 4.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: startPoint.y
+      value: 1.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryOrigin.x
+      value: 4.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryOrigin.y
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
 --- !u!4 &1022660682 stripped
@@ -22181,90 +22241,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfe764c310cb52c43b71e81a8cb90ed7, type: 3}
---- !u!1001 &1038805667
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5945221521199871598, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_Name
-      value: FlyingEnemy Variant (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 16.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: isMovementRangeLimited
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: moveBoundaryMaxX
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: moveBoundaryMaxY
-      value: 16.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
 --- !u!1001 &1038927840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26519,6 +26495,36 @@ PrefabInstance:
         type: 3}
       propertyPath: chaser
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: startPoint.x
+      value: 5.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: startPoint.y
+      value: -1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryMaxX
+      value: 16.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryMaxY
+      value: 12.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryOrigin.x
+      value: 5.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryOrigin.y
+      value: -1.68
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
@@ -44435,6 +44441,36 @@ PrefabInstance:
       propertyPath: chaser
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryMaxX
+      value: 17.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryMaxY
+      value: 11.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: startPoint.x
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: startPoint.y
+      value: -2.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryOrigin.x
+      value: -1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryOrigin.y
+      value: -2.66
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
 --- !u!4 &1976075671 stripped
@@ -53290,12 +53326,12 @@ PrefabInstance:
     - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 150.46
+      value: 149.49
       objectReference: {fileID: 0}
     - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.37
+      value: -5.322
       objectReference: {fileID: 0}
     - target: {fileID: 5945221521199871597, guid: 1b0ee7cd288ad6742859549a72706cd2,
         type: 3}
@@ -53346,6 +53382,21 @@ PrefabInstance:
         type: 3}
       propertyPath: chaser
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryMaxY
+      value: 9.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: startPoint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945221521199871585, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: moveBoundaryMaxX
+      value: 13.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
