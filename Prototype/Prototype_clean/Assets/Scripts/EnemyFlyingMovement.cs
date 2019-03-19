@@ -13,16 +13,33 @@ public class EnemyFlyingMovement : MonoBehaviour
     [Header("Movement Config")]
     public float moveAcceleration;
     public float moveSpeed;
+    public bool isMovementRangeLimited;
+    public float moveBoundaryMaxX;
+    public float moveBoundaryMaxY;
     [Header("Runtime Variables")]
     public bool chasing;
     public Vector2 direction;
+    public Vector2 startPoint;
 
 
     public GameObject player;
+    
+
+    //for editor usability, show boundaries of area the enemy can move if restricted
+    void OnDrawGizmosSelected()
+    {
+        if (isMovementRangeLimited)
+        {
+            // Draw a semi transparent red square
+            Gizmos.color = new Color(1, 0, 0, 0.3f);
+            Gizmos.DrawCube(transform.position, new Vector2(moveBoundaryMaxX, moveBoundaryMaxY));
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        startPoint = transform.position;
         rigidBody = GetComponent<Rigidbody2D>();
         if (bouncer)
         {
@@ -60,11 +77,61 @@ public class EnemyFlyingMovement : MonoBehaviour
             }
         }
 
+        //apply movement
         rigidBody.AddForce(direction*moveAcceleration);
 
         if (rigidBody.velocity.magnitude > moveSpeed)       //clamps move speed to a maximum
         {
             rigidBody.velocity = rigidBody.velocity.normalized * moveSpeed;
+        }
+
+        if (isMovementRangeLimited)
+        {
+            //enemy leaves its restricted range. this code is disgustingly huge. refactor at will
+            if (transform.position.x > startPoint.x + (moveBoundaryMaxX / 2))  //this is really clunky. interface uses box radius, while code has to use diameter. hence /2
+            {
+                if (bouncer)
+                {
+                    direction.x = -1;
+                }
+                else
+                {
+                    chasing = false;
+                }
+            }
+            if (transform.position.x < startPoint.x - (moveBoundaryMaxX / 2))   //less than min x
+            {
+                if (bouncer)
+                {
+                    direction.x = 1;
+                }
+                else
+                {
+                    chasing = false;
+                }
+            }
+            if (transform.position.y > startPoint.y + (moveBoundaryMaxY / 2))   //more than max y
+            {
+                if (bouncer)
+                {
+                    direction.y = -1;
+                }
+                else
+                {
+                    chasing = false;
+                }
+            }
+            if (transform.position.y < startPoint.y - (moveBoundaryMaxY / 2))   //less than min y
+            {
+                if (bouncer)
+                {
+                    direction.y = 1;
+                }
+                else
+                {
+                    chasing = false;
+                }
+            }
         }
 
     }
