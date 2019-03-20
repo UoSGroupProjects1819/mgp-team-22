@@ -115,26 +115,35 @@ public class Movement : MonoBehaviour
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, rigidBody.velocity.y * minJump);
             }
         }
-
-        if ((JumpPressedRemember > 0) && (GroundedRemember > 0))
-        {
-            JumpPressedRemember = 0;
-            GroundedRemember = 0;
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, maxJump);
-        }
-
-        float fHorizontalVelocity = rigidBody.velocity.x;
-        fHorizontalVelocity += Input.GetAxisRaw("Horizontal");
-
-        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f)
-            fHorizontalVelocity *= Mathf.Pow(1f - StopDamping, Time.deltaTime * 10f);
-        else if (Mathf.Sign(Input.GetAxisRaw("Horizontal")) != Mathf.Sign(fHorizontalVelocity))
-            fHorizontalVelocity *= Mathf.Pow(1f - TurnDamping, Time.deltaTime * 10f);
-        else
-            fHorizontalVelocity *= Mathf.Pow(1f - DampingMaster, Time.deltaTime * 10f);
-
-        rigidBody.velocity = new Vector2((fHorizontalVelocity /10) * runSpeed, rigidBody.velocity.y);
     }
+
+
+    void FixedUpdate()
+    {
+        
+            if ((JumpPressedRemember > 0) && (GroundedRemember > 0))
+            {
+                JumpPressedRemember = 0;
+                GroundedRemember = 0;
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, maxJump);
+            }
+
+            float fHorizontalVelocity = rigidBody.velocity.x;
+            fHorizontalVelocity += Input.GetAxisRaw("Horizontal");
+
+            //   fHorizontalVelocity = (fHorizontalVelocity * Time.deltaTime * 100);
+
+            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f)
+                fHorizontalVelocity *= Mathf.Pow(1f - StopDamping, Time.deltaTime * 10f);
+            else if (Mathf.Sign(Input.GetAxisRaw("Horizontal")) != Mathf.Sign(fHorizontalVelocity))
+                fHorizontalVelocity *= Mathf.Pow(1f - TurnDamping, Time.deltaTime * 10f);
+            else
+                fHorizontalVelocity *= Mathf.Pow(1f - DampingMaster, Time.deltaTime * 10f);
+
+            rigidBody.velocity = new Vector2((fHorizontalVelocity / 10) * runSpeed, rigidBody.velocity.y);
+        
+    }
+    
 
     public void bounceMovement()
     {
