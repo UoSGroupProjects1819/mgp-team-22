@@ -6,7 +6,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField]
-    [Range(0, 10)]
+    [Range(0, 15)]
     float maxJump;
 
     [SerializeField]
