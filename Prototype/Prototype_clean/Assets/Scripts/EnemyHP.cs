@@ -19,9 +19,9 @@ public class EnemyHP : MonoBehaviour
         invincible = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-     if (collision.gameObject.tag == "attackBox")
+        if (collision.gameObject.tag == "attackBox")
         {
             if (!invincible)
             {
@@ -32,6 +32,20 @@ public class EnemyHP : MonoBehaviour
             }
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    // if (collision.gameObject.tag == "attackBox")
+    //    {
+    //        if (!invincible)
+    //        {
+    //            HP--;
+    //            ParticleSys.Play();
+    //            invincible = true;
+    //            StartCoroutine(damageFlash());
+    //        }
+    //    }
+    //}
 
     //Update is called once per frame
     void Update()

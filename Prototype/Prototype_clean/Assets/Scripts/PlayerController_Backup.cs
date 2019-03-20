@@ -20,7 +20,9 @@ public class PlayerController_Backup : MonoBehaviour
 
     private float moveHorizontal, moveVertical;
 
-    private bool firing, invincible;
+    private bool invincible;
+
+    public static bool firing;
 
     private int HP;
 

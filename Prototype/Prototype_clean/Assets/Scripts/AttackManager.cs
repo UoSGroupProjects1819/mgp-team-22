@@ -24,6 +24,7 @@ public class AttackManager : MonoBehaviour
         side.gameObject.SetActive(false);
         canAttack = true;
         downAttack = false;
+        PlayerController_Backup.firing = false;
 
     }
 
@@ -66,6 +67,7 @@ public class AttackManager : MonoBehaviour
     {
         StartCoroutine(attackTime());
         canAttack = false;
+        PlayerController_Backup.firing = true;
 
         switch (input)
         {
@@ -92,20 +94,32 @@ public class AttackManager : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy" && !canAttack)
         {
             if (downAttack)
             {
- 
+
                 playerCont.bounceMovement();
 
             }
-
-         //   else collision.gameObject.SetActive(false);
-
         }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemy" && !canAttack)
+    //    {
+    //        if (downAttack)
+    //        {
+ 
+    //            playerCont.bounceMovement();
+
+    //        }
+
+    //     //   else collision.gameObject.SetActive(false);
+
+    //    }
           
     }
 }
