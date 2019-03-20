@@ -149,7 +149,7 @@ public class EnemyFlyingMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground" && colCheck)
+        if ((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy") && colCheck)
         {
             colCheck = false;
             StartCoroutine(ColCheckRefresh(0.1f));      //delay of 0.1 seconds between collision checks, fixed a bug when colliding two wall parts at the same time.
