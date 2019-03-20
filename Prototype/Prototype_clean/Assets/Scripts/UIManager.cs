@@ -7,6 +7,9 @@ public class UIManager : MonoBehaviour
 {
 
     public GameObject PauseCanvas;
+    public GameObject HealthSprite1;
+    public GameObject HealthSprite2;
+    public GameObject HealthSprite3;
 
     public Button Resume;
     private GameManager gameMan;
@@ -20,7 +23,7 @@ public class UIManager : MonoBehaviour
         gameMan = game;
     }
 
-
+    
 
     public void OpenMenu()
     {
@@ -49,6 +52,26 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hpText.text = ("HP: " + gameMan.hp.ToString());
+        switch(gameMan.hp)
+        {
+            case 1:
+                HealthSprite1.SetActive(true);
+                HealthSprite2.SetActive(false);
+                HealthSprite3.SetActive(false);
+                break;
+
+            case 2:
+                HealthSprite1.SetActive(true);
+                HealthSprite2.SetActive(true);
+                HealthSprite3.SetActive(false);
+                break;
+
+            case 3:
+                HealthSprite1.SetActive(true);
+                HealthSprite2.SetActive(true);
+                HealthSprite3.SetActive(true);
+                break;
+
+        }
     }
 }
