@@ -98,7 +98,7 @@ public class AttackManager : MonoBehaviour
         {
             if (downAttack)
             {
-                print("bounce");
+ 
                 playerCont.bounceMovement();
 
             }
