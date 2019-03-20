@@ -43,20 +43,20 @@ public class AttackManager : MonoBehaviour
         inputH = Input.GetAxis("Horizontal");
         inputV = Input.GetAxis("Vertical");
 
-        if (inputV * inputV < inputH * inputH)
-        {
+        //if (inputV * inputV < inputH * inputH)
+        //{
             if (inputH < 0) inputD = "left";
             
             if (inputH > 0) inputD = "right";
             
-        }
+        //}
 
-        else
-        {
+        //else
+        //{
             if (inputV > 0) inputD = "up";
             
             if (inputV < 0) inputD = "down";
-        }
+        //}
 
         if (Input.GetButtonDown("Fire1") && canAttack) Attack(inputD);
         

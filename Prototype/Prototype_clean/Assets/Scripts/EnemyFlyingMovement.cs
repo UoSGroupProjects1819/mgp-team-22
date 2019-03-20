@@ -13,16 +13,42 @@ public class EnemyFlyingMovement : MonoBehaviour
     [Header("Movement Config")]
     public float moveAcceleration;
     public float moveSpeed;
+    public bool isMovementRangeLimited;
+    public float moveBoundaryMaxX;
+    public float moveBoundaryMaxY;
+    public Vector3 moveBoundaryOrigin;
     [Header("Runtime Variables")]
     public bool chasing;
     public Vector2 direction;
+   
 
 
     public GameObject player;
+    
+
+    //for editor usability, show boundaries of area the enemy can move if restricted
+    void OnDrawGizmosSelected()
+    {
+        if (isMovementRangeLimited)
+        {
+            // Draw a semi transparent red square
+            Gizmos.color = new Color(1, 0, 0, 0.3f);
+            Gizmos.DrawCube(transform.position + moveBoundaryOrigin, new Vector2(moveBoundaryMaxX, moveBoundaryMaxY));
+
+            if (moveBoundaryOrigin.x != 0 || moveBoundaryOrigin.y != 0)
+            {
+                Gizmos.DrawIcon(transform.position + moveBoundaryOrigin, "Start Point Gizmo.png", true);
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+
+        moveBoundaryOrigin = transform.position + moveBoundaryOrigin;   //allows for offset on movement range box centre
+
+
         rigidBody = GetComponent<Rigidbody2D>();
         if (bouncer)
         {
@@ -60,11 +86,61 @@ public class EnemyFlyingMovement : MonoBehaviour
             }
         }
 
+        //apply movement
         rigidBody.AddForce(direction*moveAcceleration);
 
         if (rigidBody.velocity.magnitude > moveSpeed)       //clamps move speed to a maximum
         {
             rigidBody.velocity = rigidBody.velocity.normalized * moveSpeed;
+        }
+
+        if (isMovementRangeLimited)
+        {
+            //enemy leaves its restricted range. this code is disgustingly huge. refactor at will
+            if (transform.position.x > moveBoundaryOrigin.x + (moveBoundaryMaxX / 2))  //this is really clunky. interface uses box radius, while code has to use diameter. hence /2
+            {
+                if (bouncer)
+                {
+                    direction.x = -1;
+                }
+                else
+                {
+                    chasing = false;
+                }
+            }
+            if (transform.position.x < moveBoundaryOrigin.x - (moveBoundaryMaxX / 2))   //less than min x
+            {
+                if (bouncer)
+                {
+                    direction.x = 1;
+                }
+                else
+                {
+                    chasing = false;
+                }
+            }
+            if (transform.position.y > moveBoundaryOrigin.y + (moveBoundaryMaxY / 2))   //more than max y
+            {
+                if (bouncer)
+                {
+                    direction.y = -1;
+                }
+                else
+                {
+                    chasing = false;
+                }
+            }
+            if (transform.position.y < moveBoundaryOrigin.y - (moveBoundaryMaxY / 2))   //less than min y
+            {
+                if (bouncer)
+                {
+                    direction.y = 1;
+                }
+                else
+                {
+                    chasing = false;
+                }
+            }
         }
 
     }
@@ -73,7 +149,7 @@ public class EnemyFlyingMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground" && colCheck)
+        if ((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy") && colCheck)
         {
             colCheck = false;
             StartCoroutine(ColCheckRefresh(0.1f));      //delay of 0.1 seconds between collision checks, fixed a bug when colliding two wall parts at the same time.
