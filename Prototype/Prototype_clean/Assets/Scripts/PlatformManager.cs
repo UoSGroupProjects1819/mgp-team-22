@@ -57,7 +57,7 @@ public class PlatformManager : MonoBehaviour
     //set player (or enemies) resting on the platform to be its child so that they move with it
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Player" /*|| collision.gameObject.tag == "Enemy"*/)
         {
             collision.transform.SetParent(this.gameObject.transform);
         }
@@ -65,7 +65,7 @@ public class PlatformManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Player" /*|| collision.gameObject.tag == "Enemy"*/)
         {
             collision.transform.SetParent(null);
         }
