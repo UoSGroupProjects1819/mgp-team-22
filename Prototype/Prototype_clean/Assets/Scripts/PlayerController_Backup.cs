@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class PlayerController_Backup : MonoBehaviour
 {
-    public float jumpForce, speed, MaxJump, holdTime;  // 
+    public float knockBackForce;  // 
     private bool canJump = false;
-
+    
     private Rigidbody2D rb2d;
     private AudioSource source;
     public AudioClip jumpSound;
     public GameManager GameMan;
     private Transform transF;
     private Animator anim;
-
     private SpriteRenderer spriteRen;
 
-    private Vector3 respawnPos;
+    private Vector3 respawnPos, knockBackDirection;
 
     private float moveHorizontal, moveVertical;
-
     private bool firing, invincible;
-
     private int HP;
 
     private Color Black = new Color(0f, 0f, 0f, 1f);
@@ -66,6 +63,8 @@ public class PlayerController_Backup : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && !firing)
         {
+            knockBackDirection = rb2d.transform.position - collision.transform.position;
+            rb2d.AddForce(knockBackDirection.normalized * knockBackForce);
             takeDamage();
         }
     }
@@ -90,7 +89,7 @@ public class PlayerController_Backup : MonoBehaviour
             GameMan.hp = HP;
             invincible = true;
             anim.SetBool("takeDamage", true);
-            StartCoroutine(damageFlash());
+            StartCoroutine(invincibleTimer());
         }
     
         if (HP <= 0)
@@ -111,7 +110,7 @@ public class PlayerController_Backup : MonoBehaviour
         respawnPos.z = PlayerPrefs.GetFloat("respawn Z");
     }
 
-    public IEnumerator damageFlash()
+    public IEnumerator invincibleTimer()
     {
         yield return new WaitForSeconds(1.5f);
         invincible = false;
