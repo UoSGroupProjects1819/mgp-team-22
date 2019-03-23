@@ -137,11 +137,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7783992986119750030, guid: 72c3258ae58f61b49a27c4f78e29662b,
-        type: 3}
-      propertyPath: knockbackForce
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 2342030603916976079, guid: 72c3258ae58f61b49a27c4f78e29662b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
