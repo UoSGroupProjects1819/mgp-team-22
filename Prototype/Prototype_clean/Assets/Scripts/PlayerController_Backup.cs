@@ -18,7 +18,9 @@ public class PlayerController_Backup : MonoBehaviour
     private Vector3 respawnPos, knockBackDirection;
 
     private float moveHorizontal, moveVertical;
-    private bool firing, invincible;
+    private bool invincible;
+    public bool firing;
+
     private int HP;
 
     private Color Black = new Color(0f, 0f, 0f, 1f);

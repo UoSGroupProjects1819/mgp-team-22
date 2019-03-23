@@ -13,8 +13,8 @@ public class AttackManager : MonoBehaviour
     private string inputD;
 
     public GameObject up, down, side;
-   // public PlayerController_Backup playerCont;   // < add me
-    public Movement playerCont;                    // < remove me
+    public PlayerController_Backup playerCont;   
+    public Movement moveMan;                   
 
     public IEnumerator attackTime()
     {
@@ -22,6 +22,8 @@ public class AttackManager : MonoBehaviour
         up.gameObject.SetActive(false);
         down.gameObject.SetActive(false);
         side.gameObject.SetActive(false);
+        playerCont.firing = false;
+
         canAttack = true;
         downAttack = false;
 
@@ -32,9 +34,10 @@ public class AttackManager : MonoBehaviour
     private void Start()
     {
         canAttack = true;
-        downAttack = false; 
-        playerCont = GameObject.Find("PlayerCharacter").GetComponent<Movement>();                          // < remove me
-       // playerCont = GameObject.Find("PlayerCharacter").GetComponent<PlayerController_Backup>();  // < add me
+        downAttack = false;
+        moveMan = GetComponent<Movement>();
+        playerCont = GetComponent<PlayerController_Backup>();
+
 
     }
 
@@ -58,7 +61,12 @@ public class AttackManager : MonoBehaviour
             if (inputV < 0) inputD = "down";
         //}
 
-        if (Input.GetButtonDown("Fire1") && canAttack) Attack(inputD);
+        if (Input.GetButtonDown("Fire1") && canAttack)
+        {
+            playerCont.firing = true;
+            Attack(inputD);
+
+        }
         
     }
 
@@ -98,8 +106,8 @@ public class AttackManager : MonoBehaviour
         {
             if (downAttack)
             {
- 
-                playerCont.bounceMovement();
+
+                moveMan.bounceMovement();
 
             }
 
