@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 3
+  knockbackForce: 500
 --- !u!198 &3300933446361123067
 ParticleSystem:
   m_ObjectHideFlags: 0

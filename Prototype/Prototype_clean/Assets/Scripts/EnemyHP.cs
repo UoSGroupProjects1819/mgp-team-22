@@ -5,17 +5,22 @@ using UnityEngine;
 public class EnemyHP : MonoBehaviour
 {
     public int HP;
+    public float knockbackForce;
     private Animator anim;
     private ParticleSystem ParticleSys;
 
+    private Rigidbody2D rb2d;
+
     private bool invincible;
 
+    private Vector3 knockBackDirection;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         ParticleSys = GetComponent<ParticleSystem>();
+        rb2d = GetComponent<Rigidbody2D>();
         invincible = false;
     }
 
@@ -28,7 +33,9 @@ public class EnemyHP : MonoBehaviour
                 HP--;
                 ParticleSys.Play();
                 invincible = true;
-                StartCoroutine(damageFlash());
+                StartCoroutine(invincibleTimer());
+                knockBackDirection = rb2d.transform.position - collision.transform.position;
+                rb2d.AddForce(knockBackDirection.normalized * knockbackForce);
             }
         }
     }
@@ -43,7 +50,7 @@ public class EnemyHP : MonoBehaviour
         }
     }
 
-    public IEnumerator damageFlash()
+    public IEnumerator invincibleTimer()
     {
 
         yield return new WaitForSeconds(1f);

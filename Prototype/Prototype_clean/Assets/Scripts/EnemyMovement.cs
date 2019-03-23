@@ -32,9 +32,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground") moveSpeed = moveSpeed * -1;
+        if (collision.gameObject.tag == "Ground"                                  // this is the same if
+            ||collision.gameObject.tag == "Edge"                                  // broken up into 3 lines 
+            ||collision.gameObject.tag == "Enemy" ) moveSpeed = moveSpeed * -1;   // to fit niceley.
 
-        else if (collision.gameObject.tag == "Edge") moveSpeed = moveSpeed * -1;
+        //else if (collision.gameObject.tag == "Edge") moveSpeed = moveSpeed * -1;
     }
 
 

@@ -159,7 +159,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648146271479362933}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -179,12 +179,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648146271479362933}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c246a9f207232ab478821833f80c856d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 2
+  knockbackForce: 500
 --- !u!198 &4260769299471805358
 ParticleSystem:
   m_ObjectHideFlags: 0
