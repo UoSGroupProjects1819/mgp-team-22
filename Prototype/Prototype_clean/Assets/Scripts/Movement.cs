@@ -145,6 +145,7 @@ public class Movement : MonoBehaviour
             else
                 fHorizontalVelocity *= Mathf.Pow(1f - DampingMaster, Time.deltaTime * 10f);
 
+            
             rb2d.velocity = new Vector2((fHorizontalVelocity / 10) * runSpeed, rb2d.velocity.y);
         
     }

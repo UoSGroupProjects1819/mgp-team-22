@@ -63,6 +63,7 @@ public class AttackManager : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && canAttack)
         {
+            canAttack = false;
             playerCont.firing = true;
             Attack(inputD);
 
@@ -73,7 +74,7 @@ public class AttackManager : MonoBehaviour
     void Attack(string input)
     {
         StartCoroutine(attackTime());
-        canAttack = false;
+        
 
         switch (input)
         {
