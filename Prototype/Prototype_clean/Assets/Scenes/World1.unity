@@ -1924,7 +1924,7 @@ PrefabInstance:
     - target: {fileID: 3202262089146485148, guid: 1bb96e191181b45429303cf7fc371b64,
         type: 3}
       propertyPath: knockbackForce
-      value: 400
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bb96e191181b45429303cf7fc371b64, type: 3}
@@ -55495,32 +55495,6 @@ PrefabInstance:
       propertyPath: TeleporterLocation
       value: 
       objectReference: {fileID: 654455217}
-    - target: {fileID: 5468325824728289116, guid: 7d555d961b590fe48844629b7840bfae,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1221177035214620853, guid: 7d555d961b590fe48844629b7840bfae,
-        type: 3}
-      propertyPath: knockBackForce
-      value: 900
-      objectReference: {fileID: 0}
-    - target: {fileID: 1918608211, guid: 7d555d961b590fe48844629b7840bfae, type: 3}
-      propertyPath: runSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1918608211, guid: 7d555d961b590fe48844629b7840bfae, type: 3}
-      propertyPath: preJump
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1918608211, guid: 7d555d961b590fe48844629b7840bfae, type: 3}
-      propertyPath: maxJump
-      value: 14.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1918608211, guid: 7d555d961b590fe48844629b7840bfae, type: 3}
-      propertyPath: grounded
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d555d961b590fe48844629b7840bfae, type: 3}
 --- !u!4 &9153635262113944598 stripped

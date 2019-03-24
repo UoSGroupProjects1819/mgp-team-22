@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463001790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.009, y: 1.009, z: 0.25}
-  m_LocalScale: {x: 0.4255, y: 1.9218458, z: 1}
+  m_LocalPosition: {x: -0.009, y: 0.966, z: 0.25}
+  m_LocalScale: {x: 1.1159555, y: 2.6289308, z: 1}
   m_Children: []
   m_Father: {fileID: 7584475608120671771}
   m_RootOrder: 0
@@ -132,8 +132,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504946422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7419, y: -0.012, z: 0.25}
-  m_LocalScale: {x: 2.6774604, y: 0.2842, z: 1}
+  m_LocalPosition: {x: -0.749, y: -0.026, z: 0.25}
+  m_LocalScale: {x: 3.249435, y: 1.5656334, z: 1}
   m_Children: []
   m_Father: {fileID: 7584475608120671771}
   m_RootOrder: 2
@@ -238,8 +238,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838533283}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.003, y: -1.108, z: 0.25}
-  m_LocalScale: {x: 0.31470957, y: 2.152531, z: 1}
+  m_LocalPosition: {x: 0.004, y: -0.906, z: 0.25}
+  m_LocalScale: {x: 1.3228072, y: 1.2213976, z: 1}
   m_Children: []
   m_Father: {fileID: 7584475608120671771}
   m_RootOrder: 1
@@ -662,7 +662,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 2
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 8d136e30c02c2ea4fab7791289ff3955, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 0
@@ -681,11 +681,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 1
-  attackDuration: 0.5
+  attackDuration: 0.3
   up: {fileID: 1463001790}
   down: {fileID: 1838533283}
   side: {fileID: 1504946422}
   playerCont: {fileID: 0}
+  moveMan: {fileID: 0}
 --- !u!114 &1221177035214620853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,12 +699,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee26f42324ab1c48acb3ac196c24c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 40
-  speed: 250
-  MaxJump: 0.2
-  holdTime: 0.2
+  knockBackForce: 900
   jumpSound: {fileID: 8300000, guid: c1b3f1e7c1473c442abf4e24460d3221, type: 3}
   GameMan: {fileID: 0}
+  firing: 0
 --- !u!114 &7724914401035406934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,10 +741,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ad41e9231506b4b86e559095b329d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJump: 12.45
-  runSpeed: 9.864
+  maxJump: 14.02
+  runSpeed: 10
   minJump: 0.3
-  preJump: 0.35
+  grounded: 1
+  preJump: 0.2
   edgeJump: 0.2
   DampingMaster: 0.5
   StopDamping: 0.5
