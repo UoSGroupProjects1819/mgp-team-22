@@ -103,11 +103,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.856586
       objectReference: {fileID: 0}
-    - target: {fileID: 682133549338958963, guid: 72c3258ae58f61b49a27c4f78e29662b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 187941047, guid: 72c3258ae58f61b49a27c4f78e29662b, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -136,6 +131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783992986119750030, guid: 72c3258ae58f61b49a27c4f78e29662b,
+        type: 3}
+      propertyPath: knockbackForce
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2342030603916976079, guid: 72c3258ae58f61b49a27c4f78e29662b,
         type: 3}
@@ -310,6 +310,11 @@ PrefabInstance:
     - target: {fileID: 4260769299471805358, guid: 72c3258ae58f61b49a27c4f78e29662b,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 682133549338958963, guid: 72c3258ae58f61b49a27c4f78e29662b,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
