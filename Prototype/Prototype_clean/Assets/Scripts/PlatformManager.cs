@@ -14,14 +14,28 @@ public class PlatformManager : MonoBehaviour
     // Total distance between the markers.
     private float journeyLength;
 
+    public bool detectPlayer;
+    private bool occupied;
+    private Transform originalStartPoint;
+    private Transform originalEndPoint;
 
     void Start()
     {
-            // Keep a note of the time the movement started.
-            startTime = Time.time;
+        originalStartPoint = startPoint;    //track the original start and end point so they can reliably move back to the start
+        originalStartPoint = startPoint;
 
-            // Calculate the journey length.
-            journeyLength = Vector3.Distance(startPoint.position, endPoint.position);
+        // Keep a note of the time the movement started.
+        startTime = Time.time;
+
+        // Calculate the journey length.
+        journeyLength = Vector3.Distance(startPoint.position, endPoint.position);
+
+        if(!detectPlayer)   //platforms that don't use player detection should always be moving
+        {
+            occupied = true;
+        }
+
+
     }
 
     // Update is called once per frame
@@ -33,12 +47,17 @@ public class PlatformManager : MonoBehaviour
 
         // Fraction of journey completed = current distance divided by total distance.
         float fracJourney = distCovered / journeyLength;
-
+            
         // Set our position as a fraction of the distance between the markers. Smooth lerp looks more natural
         transform.position = Vector3.Lerp(startPoint.position, endPoint.position, Mathf.SmoothStep(0, 1, fracJourney));
 
-        if (transform.position == startPoint.position) Reset();
-        if (transform.position == endPoint.position) Reset();
+
+        if (occupied)
+        {
+            if (transform.position == startPoint.position) Reset();
+            if (transform.position == endPoint.position) Reset();
+        }
+
 
     }
 
@@ -53,6 +72,16 @@ public class PlatformManager : MonoBehaviour
         journeyLength = Vector3.Distance(startPoint.position, endPoint.position);
     }
 
+    private void ResetToStart()
+    {
+        startPoint = originalEndPoint;
+        endPoint = originalStartPoint;
+
+        startTime = Time.time;
+
+        journeyLength = Vector3.Distance(startPoint.position, endPoint.position);
+    }
+
 
     //set player (or enemies) resting on the platform to be its child so that they move with it
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,6 +89,11 @@ public class PlatformManager : MonoBehaviour
         if(collision.gameObject.tag == "Player" /*|| collision.gameObject.tag == "Enemy"*/)
         {
             collision.transform.SetParent(this.gameObject.transform);
+
+            if(detectPlayer)    //start moving if player onboard
+            {
+                occupied = true;
+            }
         }
     }
 
@@ -68,6 +102,12 @@ public class PlatformManager : MonoBehaviour
         if (collision.gameObject.tag == "Player" /*|| collision.gameObject.tag == "Enemy"*/)
         {
             collision.transform.SetParent(null);
+
+            if(detectPlayer)    //stop moving if player leaves
+            {
+                occupied = false;
+                ResetToStart();
+            }
         }
     }
 
