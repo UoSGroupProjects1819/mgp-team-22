@@ -11,6 +11,7 @@ TagManager:
   - downAttack
   - fallDeath
   - Edge
+  - Money
   layers:
   - Default
   - TransparentFX
