@@ -43,6 +43,7 @@ public class Movement : MonoBehaviour
 
     [Header("Debug")]
     public bool flyMode;
+    private float storeGravScale;
 
 
 
@@ -184,7 +185,16 @@ public class Movement : MonoBehaviour
     public void ToggleFly()
     {
         flyMode = !flyMode;
-        rb2d.isKinematic = !rb2d.isKinematic;
+
+        if (rb2d.gravityScale != 0)
+        {
+            storeGravScale = rb2d.gravityScale;
+            rb2d.gravityScale = 0f;
+        }
+        else
+        {
+            rb2d.gravityScale = storeGravScale;
+        }
     }
 
 }
