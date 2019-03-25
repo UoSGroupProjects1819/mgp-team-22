@@ -41,7 +41,7 @@ public class PlatformManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!detectPlayer || moving)
+        if (!detectPlayer || moving)    //this is here to stop player activated platforms from moving on game start
         {
 
             // Distance moved = time * speed.
@@ -51,7 +51,7 @@ public class PlatformManager : MonoBehaviour
             float fracJourney = distCovered / journeyLength;
 
 
-            if (!detectPlayer || occupied)
+            if (!detectPlayer || occupied)  //behave normally when player is riding, or if it doesn't care about players
             {
                 // Set our position as a fraction of the distance between the markers. Smooth lerp looks more natural
                 transform.position = Vector3.Lerp(startPoint.position, endPoint.position, Mathf.SmoothStep(0, 1, fracJourney));
@@ -59,7 +59,7 @@ public class PlatformManager : MonoBehaviour
                 if (transform.position == startPoint.position) Reset();
                 if (transform.position == endPoint.position) Reset();
             }
-            else
+            else    //if player activated & unoccupied then lerp from position player got off to end point
             {
                 transform.position = Vector3.Lerp(resetTrans.position, endPoint.position, Mathf.SmoothStep(0, 1, fracJourney));
 
@@ -69,7 +69,7 @@ public class PlatformManager : MonoBehaviour
 
     }
 
-    private void Reset()
+    private void Reset()    //when the platform reaches the end point, swap start and end
     {
         tempTrans = startPoint;
         startPoint = endPoint;
@@ -80,7 +80,7 @@ public class PlatformManager : MonoBehaviour
         journeyLength = Vector3.Distance(startPoint.position, endPoint.position);
     }
 
-    private void ResetToStart()
+    private void ResetToStart()     //reset to the original start point from current transform
     {
         startPoint = originalEndPoint;
         endPoint = originalStartPoint;
@@ -102,8 +102,9 @@ public class PlatformManager : MonoBehaviour
             if(detectPlayer)    //start moving if player onboard
             {
                 occupied = true;
-                delayReset = false;
-                if (!moving)
+                delayReset = false; //interrupt the delay for resetting the platform
+
+                if (!moving)        //allow the platform to start moving
                 {
                     moving = true;
                     startTime = Time.time;
@@ -121,9 +122,9 @@ public class PlatformManager : MonoBehaviour
             if(detectPlayer)    //stop moving if player leaves
             {
                 
-                delayReset = true;
+                delayReset = true;  //platform considered unoccupied 'resetTime' seconds after player gets off
                 
-                yield return new WaitForSeconds(resetTime);
+                yield return new WaitForSeconds(resetTime); 
 
                 if (delayReset)
                 {
