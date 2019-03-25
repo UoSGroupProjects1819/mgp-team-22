@@ -148,9 +148,9 @@ public class Movement : MonoBehaviour
         else
             fHorizontalVelocity *= Mathf.Pow(1f - DampingMaster, Time.deltaTime * 10f);
 
-        if (flyMode)
+        if (flyMode)    //FLY MODE FOR DEBUGGING
         {
-            float fVerticalVelocity = rb2d.velocity.y;
+            float fVerticalVelocity = rb2d.velocity.y;  
             fVerticalVelocity += Input.GetAxisRaw("Vertical");
 
             if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.01f)
