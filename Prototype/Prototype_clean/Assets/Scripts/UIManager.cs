@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public GameObject HealthSprite2;
     public GameObject HealthSprite3;
 
+    public GameObject player;   //added for debug commands
+
     public Button Resume;
     private GameManager gameMan;
 
@@ -46,8 +48,19 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
+
+    public void ToggleNoClip()
+    {
+        player.GetComponent<CircleCollider2D>().enabled = !player.GetComponent<CircleCollider2D>().enabled;
+    }
+
+    public void ToggleFlyMode()
+    {
+        player.GetComponent<Movement>().ToggleFly();
+    }
+
 
     // Update is called once per frame
     void Update()

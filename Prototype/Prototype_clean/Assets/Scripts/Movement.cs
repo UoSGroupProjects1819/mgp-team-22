@@ -41,6 +41,9 @@ public class Movement : MonoBehaviour
     [Range(0, 1)]
     float TurnDamping = 0.5f;
 
+    [Header("Debug")]
+    public bool flyMode;
+
 
 
 
@@ -97,7 +100,6 @@ public class Movement : MonoBehaviour
         //}
 
 
-
         //bool grounded = Physics2D.OverlapBox(position, scale, 0);
 
         GroundedRemember -= Time.deltaTime;
@@ -125,28 +127,45 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         
-            if ((JumpPressedRemember > 0) && (GroundedRemember > 0))
-            {
-                JumpPressedRemember = 0;
-                GroundedRemember = 0;
-                rb2d.velocity = new Vector2(rb2d.velocity.x, maxJump);
-            grounded = false;
-            }
+        if ((JumpPressedRemember > 0) && (GroundedRemember > 0))
+        {
+            JumpPressedRemember = 0;
+            GroundedRemember = 0;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, maxJump);
+        grounded = false;
+        }
 
-            float fHorizontalVelocity = rb2d.velocity.x;
-            fHorizontalVelocity += Input.GetAxisRaw("Horizontal");
+        float fHorizontalVelocity = rb2d.velocity.x;
+        fHorizontalVelocity += Input.GetAxisRaw("Horizontal");
 
-            //   fHorizontalVelocity = (fHorizontalVelocity * Time.deltaTime * 100);
+        //   fHorizontalVelocity = (fHorizontalVelocity * Time.deltaTime * 100);
 
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f)
-                fHorizontalVelocity *= Mathf.Pow(1f - StopDamping, Time.deltaTime * 10f);
-            else if (Mathf.Sign(Input.GetAxisRaw("Horizontal")) != Mathf.Sign(fHorizontalVelocity))
-                fHorizontalVelocity *= Mathf.Pow(1f - TurnDamping, Time.deltaTime * 10f);
+        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f)
+            fHorizontalVelocity *= Mathf.Pow(1f - StopDamping, Time.deltaTime * 10f);
+        else if (Mathf.Sign(Input.GetAxisRaw("Horizontal")) != Mathf.Sign(fHorizontalVelocity))
+            fHorizontalVelocity *= Mathf.Pow(1f - TurnDamping, Time.deltaTime * 10f);
+        else
+            fHorizontalVelocity *= Mathf.Pow(1f - DampingMaster, Time.deltaTime * 10f);
+
+        if (flyMode)
+        {
+            float fVerticalVelocity = rb2d.velocity.y;
+            fVerticalVelocity += Input.GetAxisRaw("Vertical");
+
+            if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.01f)
+                fVerticalVelocity *= Mathf.Pow(1f - StopDamping, Time.deltaTime * 10f);
+            else if (Mathf.Sign(Input.GetAxisRaw("Vertical")) != Mathf.Sign(fVerticalVelocity))
+                fVerticalVelocity *= Mathf.Pow(1f - TurnDamping, Time.deltaTime * 10f);
             else
-                fHorizontalVelocity *= Mathf.Pow(1f - DampingMaster, Time.deltaTime * 10f);
+                fVerticalVelocity *= Mathf.Pow(1f - DampingMaster, Time.deltaTime * 10f);
 
-            
+
+            rb2d.velocity = new Vector2((fHorizontalVelocity / 10) * runSpeed, (fVerticalVelocity / 10) * runSpeed);
+        }
+        else
+        {
             rb2d.velocity = new Vector2((fHorizontalVelocity / 10) * runSpeed, rb2d.velocity.y);
+        }
         
     }
     
@@ -162,5 +181,10 @@ public class Movement : MonoBehaviour
     //    rigidBody.AddForce(move);
     //}
 
+    public void ToggleFly()
+    {
+        flyMode = !flyMode;
+        rb2d.isKinematic = !rb2d.isKinematic;
+    }
 
 }
