@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformManager : MonoBehaviour
 {
     public Transform startPoint, endPoint;
-    private Transform tempTrans;
+    private Transform tempTrans, resetTrans;
     public float speed;
 
     // Time when the movement started.
@@ -14,15 +14,20 @@ public class PlatformManager : MonoBehaviour
     // Total distance between the markers.
     private float journeyLength;
 
+    [Header("Move When Player Riding")]
     public bool detectPlayer;
+    public float resetTime = 10f;
     private bool occupied;
+    private bool delayReset;
+    private bool moving;
     private Transform originalStartPoint;
     private Transform originalEndPoint;
 
     void Start()
     {
         originalStartPoint = startPoint;    //track the original start and end point so they can reliably move back to the start
-        originalStartPoint = startPoint;
+        originalEndPoint = endPoint;
+        resetTrans = startPoint;
 
         // Keep a note of the time the movement started.
         startTime = Time.time;
@@ -30,32 +35,35 @@ public class PlatformManager : MonoBehaviour
         // Calculate the journey length.
         journeyLength = Vector3.Distance(startPoint.position, endPoint.position);
 
-        if(!detectPlayer)   //platforms that don't use player detection should always be moving
-        {
-            occupied = true;
-        }
-
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        // Distance moved = time * speed.
-        float distCovered = (Time.time - startTime) * speed;
-
-        // Fraction of journey completed = current distance divided by total distance.
-        float fracJourney = distCovered / journeyLength;
-            
-        // Set our position as a fraction of the distance between the markers. Smooth lerp looks more natural
-        transform.position = Vector3.Lerp(startPoint.position, endPoint.position, Mathf.SmoothStep(0, 1, fracJourney));
-
-
-        if (occupied)
+        if (!detectPlayer || moving)
         {
-            if (transform.position == startPoint.position) Reset();
-            if (transform.position == endPoint.position) Reset();
+
+            // Distance moved = time * speed.
+            float distCovered = (Time.time - startTime) * speed;
+
+            // Fraction of journey completed = current distance divided by total distance.
+            float fracJourney = distCovered / journeyLength;
+
+
+            if (!detectPlayer || occupied)
+            {
+                // Set our position as a fraction of the distance between the markers. Smooth lerp looks more natural
+                transform.position = Vector3.Lerp(startPoint.position, endPoint.position, Mathf.SmoothStep(0, 1, fracJourney));
+
+                if (transform.position == startPoint.position) Reset();
+                if (transform.position == endPoint.position) Reset();
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(resetTrans.position, endPoint.position, Mathf.SmoothStep(0, 1, fracJourney));
+
+            }
         }
 
 
@@ -76,10 +84,11 @@ public class PlatformManager : MonoBehaviour
     {
         startPoint = originalEndPoint;
         endPoint = originalStartPoint;
+        resetTrans = transform;
 
         startTime = Time.time;
 
-        journeyLength = Vector3.Distance(startPoint.position, endPoint.position);
+        journeyLength = Vector3.Distance(resetTrans.position, endPoint.position);
     }
 
 
@@ -93,11 +102,17 @@ public class PlatformManager : MonoBehaviour
             if(detectPlayer)    //start moving if player onboard
             {
                 occupied = true;
+                delayReset = false;
+                if (!moving)
+                {
+                    moving = true;
+                    startTime = Time.time;
+                }
             }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private IEnumerator OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" /*|| collision.gameObject.tag == "Enemy"*/)
         {
@@ -105,8 +120,16 @@ public class PlatformManager : MonoBehaviour
 
             if(detectPlayer)    //stop moving if player leaves
             {
-                occupied = false;
-                ResetToStart();
+                
+                delayReset = true;
+                
+                yield return new WaitForSeconds(resetTime);
+
+                if (delayReset)
+                {
+                    ResetToStart();
+                    occupied = false;
+                }
             }
         }
     }
