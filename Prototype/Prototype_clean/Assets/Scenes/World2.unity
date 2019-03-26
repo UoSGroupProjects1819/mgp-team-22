@@ -12979,14 +12979,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848389675905479882, guid: f548d2e2a7ed467419ace853b2f0d36a,
         type: 3}
+      propertyPath: ToggleElements1.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 848389675905479882, guid: f548d2e2a7ed467419ace853b2f0d36a,
+        type: 3}
+      propertyPath: ToggleElements2.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 848389675905479882, guid: f548d2e2a7ed467419ace853b2f0d36a,
+        type: 3}
       propertyPath: ToggleElements2
       value: 
-      objectReference: {fileID: 809827498}
+      objectReference: {fileID: 0}
     - target: {fileID: 848389675905479882, guid: f548d2e2a7ed467419ace853b2f0d36a,
         type: 3}
       propertyPath: ToggleElements1
       value: 
-      objectReference: {fileID: 1619031695}
+      objectReference: {fileID: 0}
+    - target: {fileID: 848389675905479882, guid: f548d2e2a7ed467419ace853b2f0d36a,
+        type: 3}
+      propertyPath: ToggleElements2.Array.data[0]
+      value: 
+      objectReference: {fileID: 809827498}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f548d2e2a7ed467419ace853b2f0d36a, type: 3}
 --- !u!1001 &433480332
@@ -21282,7 +21297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &809827499
 Transform:
   m_ObjectHideFlags: 0
@@ -28257,12 +28272,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d92b9d9f34678749a796edb325bbdde, type: 3}
---- !u!1 &1619031695 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4336850697912441983, guid: 8d92b9d9f34678749a796edb325bbdde,
-    type: 3}
-  m_PrefabInstance: {fileID: 1619031694}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1619524510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8804112913015343239, guid: 97ae0ffed59607144b46fdc03eff97fa,

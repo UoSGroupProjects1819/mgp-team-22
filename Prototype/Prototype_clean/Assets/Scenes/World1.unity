@@ -55603,9 +55603,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848389675905479882, guid: f548d2e2a7ed467419ace853b2f0d36a,
         type: 3}
+      propertyPath: ToggleElements1.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 848389675905479882, guid: f548d2e2a7ed467419ace853b2f0d36a,
+        type: 3}
       propertyPath: ToggleElements1
       value: 
-      objectReference: {fileID: 1469902674}
+      objectReference: {fileID: 0}
     - target: {fileID: 848389675905479882, guid: f548d2e2a7ed467419ace853b2f0d36a,
         type: 3}
       propertyPath: spawnPoint
@@ -55615,12 +55620,17 @@ PrefabInstance:
         type: 3}
       propertyPath: ToggleElements2
       value: 
-      objectReference: {fileID: 636282473}
+      objectReference: {fileID: 0}
     - target: {fileID: 848389675905479882, guid: f548d2e2a7ed467419ace853b2f0d36a,
         type: 3}
       propertyPath: Toggle2
       value: Artifact2
       objectReference: {fileID: 0}
+    - target: {fileID: 848389675905479882, guid: f548d2e2a7ed467419ace853b2f0d36a,
+        type: 3}
+      propertyPath: ToggleElements1.Array.data[0]
+      value: 
+      objectReference: {fileID: 1469902674}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f548d2e2a7ed467419ace853b2f0d36a, type: 3}
 --- !u!212 &1034557664873800226
