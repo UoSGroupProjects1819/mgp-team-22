@@ -898,14 +898,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseCanvas: {fileID: 8928818413593840990}
-  HealthSprite1: {fileID: 0}
-  HealthSprite2: {fileID: 0}
-  HealthSprite3: {fileID: 0}
+  HealthSprite1: {fileID: 949682333413031719}
+  HealthSprite2: {fileID: 7699852367780911609}
+  HealthSprite3: {fileID: 8550233437628241694}
   player: {fileID: 0}
   Resume: {fileID: 8928818414007019382}
-  hpText: {fileID: 0}
-  ArtifactTrigger1: 
-  ArtifactTrigger2: 
+  hpText: {fileID: 8928818413613134176}
+  ArtifactTrigger1: Artifact1
+  ArtifactTrigger2: Artifact2
 --- !u!1 &8928818413304595901
 GameObject:
   m_ObjectHideFlags: 0
