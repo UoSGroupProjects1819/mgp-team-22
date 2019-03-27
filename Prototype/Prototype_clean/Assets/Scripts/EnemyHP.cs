@@ -8,6 +8,8 @@ public class EnemyHP : MonoBehaviour
     public float knockbackForce;
     private Animator anim;
     private ParticleSystem ParticleSys;
+    public DroppedMoney DropMon;
+
 
     private Rigidbody2D rb2d;
 
@@ -22,6 +24,7 @@ public class EnemyHP : MonoBehaviour
         ParticleSys = GetComponent<ParticleSystem>();
         rb2d = GetComponent<Rigidbody2D>();
         invincible = false;
+        DropMon = GameObject.Find("MoneyManager").GetComponent<DroppedMoney>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +49,18 @@ public class EnemyHP : MonoBehaviour
         if (HP == 0)
         {
             ParticleSys.Play();
+
+            foreach (GameObject coin in DropMon.coins)
+            {
+                if (coin.activeSelf == false)
+                {
+                    coin.transform.position = transform.position;
+                    coin.SetActive(true);
+                    break;
+                }
+            }
+            
+
             gameObject.SetActive(false);
         }
     }
