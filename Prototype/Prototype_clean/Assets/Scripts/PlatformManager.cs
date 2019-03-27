@@ -15,7 +15,7 @@ public class PlatformManager : MonoBehaviour
     private float journeyLength;
 
     [Header("Move When Player Riding")]
-    public bool detectPlayer;
+    public bool platformDetectsPlayer;
     public float resetTime = 10f;
     private bool occupied;
     private bool shouldStillReset;
@@ -41,7 +41,7 @@ public class PlatformManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!detectPlayer || moving)    //this is here to stop player activated platforms from moving on game start
+        if (!platformDetectsPlayer || moving)    //this is here to stop player activated platforms from moving on game start
         {
 
             // Distance moved = time * speed.
@@ -51,7 +51,7 @@ public class PlatformManager : MonoBehaviour
             float fracJourney = distCovered / journeyLength;
 
 
-            if (!detectPlayer || occupied)  //behave normally when player is riding, or if it doesn't care about players
+            if (!platformDetectsPlayer || occupied)  //behave normally when player is riding, or if it doesn't care about players
             {
                 // Set our position as a fraction of the distance between the markers. Smooth lerp looks more natural
                 transform.position = Vector3.Lerp(startPoint.position, endPoint.position, Mathf.SmoothStep(0, 1, fracJourney));
@@ -99,7 +99,7 @@ public class PlatformManager : MonoBehaviour
         {
             collision.transform.SetParent(this.gameObject.transform);
 
-            if(detectPlayer)    //start moving if player onboard
+            if(platformDetectsPlayer)    //start moving if player onboard
             {
                 occupied = true;
                 shouldStillReset = false; //interrupt the delay for resetting the platform
@@ -120,7 +120,7 @@ public class PlatformManager : MonoBehaviour
         {
             collision.transform.SetParent(null);
 
-            if(detectPlayer)    //stop moving if player leaves
+            if(platformDetectsPlayer)    //stop moving if player leaves
             {
                 
                 shouldStillReset = true;  //platform considered unoccupied 'resetTime' seconds after player gets off
