@@ -18,7 +18,7 @@ public class PlatformManager : MonoBehaviour
     public bool detectPlayer;
     public float resetTime = 10f;
     private bool occupied;
-    private bool delayReset;
+    private bool shouldStillReset;
     private bool moving;
     private Transform originalStartPoint;
     private Transform originalEndPoint;
@@ -102,7 +102,8 @@ public class PlatformManager : MonoBehaviour
             if(detectPlayer)    //start moving if player onboard
             {
                 occupied = true;
-                delayReset = false; //interrupt the delay for resetting the platform
+                shouldStillReset = false; //interrupt the delay for resetting the platform
+                StopCoroutine(OnTriggerExit2D(collision));
 
                 if (!moving)        //allow the platform to start moving
                 {
@@ -122,11 +123,11 @@ public class PlatformManager : MonoBehaviour
             if(detectPlayer)    //stop moving if player leaves
             {
                 
-                delayReset = true;  //platform considered unoccupied 'resetTime' seconds after player gets off
+                shouldStillReset = true;  //platform considered unoccupied 'resetTime' seconds after player gets off
                 
                 yield return new WaitForSeconds(resetTime); 
 
-                if (delayReset)
+                if (shouldStillReset)
                 {
                     ResetToStart();
                     occupied = false;
