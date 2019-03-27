@@ -122,6 +122,8 @@ public class Movement : MonoBehaviour
                 rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.y * minJump);
             }
         }
+
+
     }
 
 
@@ -167,9 +169,11 @@ public class Movement : MonoBehaviour
         {
             rb2d.velocity = new Vector2((fHorizontalVelocity / 10) * runSpeed, rb2d.velocity.y);
         }
-        
+
+
+
     }
-    
+
 
     public void bounceMovement()
     {
