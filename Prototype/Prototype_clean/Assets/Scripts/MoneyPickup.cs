@@ -24,6 +24,7 @@ public class MoneyPickup : MonoBehaviour
 
     void SetMoneyText()
     {
+        print(MoneyCount);
         MoneyText.text = "Coins: " + MoneyCount.ToString();
     }
 }
