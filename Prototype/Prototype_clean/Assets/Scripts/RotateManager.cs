@@ -11,6 +11,8 @@ public class RotateManager : MonoBehaviour
     public bool requireGrounded;
     [Header("1,2,3,5,9,10")]
     public int rotationSpeed = 3;
+    public float cooldown;
+    bool onCooldown;
     
 
     public GameObject thingsToRotate;
@@ -56,69 +58,80 @@ public class RotateManager : MonoBehaviour
 
     }
 
+    public IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(cooldown);
+        onCooldown = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (!requireGrounded || player.GetComponent<Movement>().grounded)
+            if (!onCooldown)
             {
-                if (!flipFlop)
+                onCooldown = true;
+                StartCoroutine(CoolDown());
+
+                if (!requireGrounded || player.GetComponent<Movement>().grounded)
                 {
-                    switch (GravityDirection)
+                    if (!flipFlop)
                     {
-                        case gravityDirection.up:
-                            rotTarget = 180;
-                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1) , 180);
-                            break;
-
-                        case gravityDirection.right:
-                            rotTarget = -90;
-                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -90);
-                            break;
-
-                        case gravityDirection.down:
-                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 0);
-                            break;
-
-                        case gravityDirection.left:
-                            rotTarget = 90;
-                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 90);
-                            break;
-                    }
-                }
-
-                if (flipFlop)
-                {
-                    float horiz = Input.GetAxisRaw("Horizontal");
-
-                    if (horiz > 0)
-                    {
-                        if (!inverted)
+                        switch (GravityDirection)
                         {
-                            rotTarget = -90;
-                        }
-                        else
-                        {
-                            rotTarget = 90;
+                            case gravityDirection.up:
+                                rotTarget = 180;
+                                //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1) , 180);
+                                break;
+
+                            case gravityDirection.right:
+                                rotTarget = -90;
+                                //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -90);
+                                break;
+
+                            case gravityDirection.down:
+                                //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 0);
+                                break;
+
+                            case gravityDirection.left:
+                                rotTarget = 90;
+                                //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 90);
+                                break;
                         }
                     }
 
-                    if (horiz < 0)
+                    if (flipFlop)
                     {
-                        if (!inverted)
+                        float horiz = Input.GetAxisRaw("Horizontal");
+
+                        if (horiz > 0)
                         {
-                            rotTarget = 90;
+                            if (!inverted)
+                            {
+                                rotTarget = -90;
+                            }
+                            else
+                            {
+                                rotTarget = 90;
+                            }
                         }
-                        else
+
+                        if (horiz < 0)
                         {
-                            rotTarget = -90;
+                            if (!inverted)
+                            {
+                                rotTarget = 90;
+                            }
+                            else
+                            {
+                                rotTarget = -90;
+                            }
+
                         }
 
                     }
-
                 }
             }
-
         }
     }
 }
