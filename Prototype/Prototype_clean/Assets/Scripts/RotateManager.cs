@@ -33,14 +33,14 @@ public class RotateManager : MonoBehaviour
         {
             if (rotTarget > rotCurrent)
             {
-                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 1);
-                rotCurrent += 1;
+                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 3);
+                rotCurrent += 3;
             }
 
             if (rotTarget < rotCurrent)
             {
-                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -1);
-                rotCurrent -= 1;
+                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -3);
+                rotCurrent -= 3;
             }
         }
 
@@ -61,6 +61,7 @@ public class RotateManager : MonoBehaviour
                 switch (GravityDirection)
                 {
                     case gravityDirection.up:
+                        rotTarget = 180;
                         //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1) , 180);
                         break;
 
