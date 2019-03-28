@@ -8216,11 +8216,6 @@ PrefabInstance:
       propertyPath: flipFlop
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7822021984741513371, guid: f19f9b9f57eeea04399ffa0ca5a5d409,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f19f9b9f57eeea04399ffa0ca5a5d409, type: 3}
 --- !u!4 &1368701469 stripped
