@@ -9,6 +9,9 @@ public class RotateManager : MonoBehaviour
     public bool flipFlop;
     public bool inverted;
     public bool requireGrounded;
+    [Header("1,2,3,5,9,10")]
+    public int rotationSpeed = 3;
+    
 
     public GameObject thingsToRotate;
 
@@ -34,14 +37,14 @@ public class RotateManager : MonoBehaviour
         {
             if (rotTarget > rotCurrent)
             {
-                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 3);
-                rotCurrent += 3;
+                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), rotationSpeed);
+                rotCurrent += rotationSpeed;
             }
 
             if (rotTarget < rotCurrent)
             {
-                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -3);
-                rotCurrent -= 3;
+                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -rotationSpeed);
+                rotCurrent -= rotationSpeed;
             }
         }
 
