@@ -7,7 +7,7 @@ public class RotateManager : MonoBehaviour
     public enum gravityDirection { up, down, left, right }
     public gravityDirection GravityDirection;
     public bool flipFlop;
-
+    public bool inverted;
 
     public GameObject thingsToRotate;
 
@@ -86,12 +86,26 @@ public class RotateManager : MonoBehaviour
 
                 if (horiz > 0)
                 {
-                    rotTarget = -90;
+                    if (!inverted)
+                    {
+                        rotTarget = -90;
+                    }
+                    else
+                    {
+                        rotTarget = 90;
+                    }
                 }
 
                 if (horiz < 0)
                 {
-                    rotTarget = 90;
+                    if (!inverted)
+                    {
+                        rotTarget = 90;
+                    }
+                    else
+                    {
+                        rotTarget = -90;
+                    }
 
                 }
 
