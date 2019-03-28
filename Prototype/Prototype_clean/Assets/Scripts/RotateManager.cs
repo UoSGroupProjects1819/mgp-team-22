@@ -8,6 +8,7 @@ public class RotateManager : MonoBehaviour
     public gravityDirection GravityDirection;
     public bool flipFlop;
     public bool inverted;
+    public bool requireGrounded;
 
     public GameObject thingsToRotate;
 
@@ -56,60 +57,63 @@ public class RotateManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (!flipFlop)
+            if (!requireGrounded || player.GetComponent<Movement>().grounded)
             {
-                switch (GravityDirection)
+                if (!flipFlop)
                 {
-                    case gravityDirection.up:
-                        rotTarget = 180;
-                        //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1) , 180);
-                        break;
-
-                    case gravityDirection.right:
-                        rotTarget = -90;
-                        //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -90);
-                        break;
-
-                    case gravityDirection.down:
-                        //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 0);
-                        break;
-
-                    case gravityDirection.left:
-                        rotTarget = 90;
-                        //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 90);
-                        break;
-                }
-            }
-
-            if (flipFlop)
-            {
-                float horiz = Input.GetAxisRaw("Horizontal");
-
-                if (horiz > 0)
-                {
-                    if (!inverted)
+                    switch (GravityDirection)
                     {
-                        rotTarget = -90;
-                    }
-                    else
-                    {
-                        rotTarget = 90;
+                        case gravityDirection.up:
+                            rotTarget = 180;
+                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1) , 180);
+                            break;
+
+                        case gravityDirection.right:
+                            rotTarget = -90;
+                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -90);
+                            break;
+
+                        case gravityDirection.down:
+                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 0);
+                            break;
+
+                        case gravityDirection.left:
+                            rotTarget = 90;
+                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 90);
+                            break;
                     }
                 }
 
-                if (horiz < 0)
+                if (flipFlop)
                 {
-                    if (!inverted)
+                    float horiz = Input.GetAxisRaw("Horizontal");
+
+                    if (horiz > 0)
                     {
-                        rotTarget = 90;
+                        if (!inverted)
+                        {
+                            rotTarget = -90;
+                        }
+                        else
+                        {
+                            rotTarget = 90;
+                        }
                     }
-                    else
+
+                    if (horiz < 0)
                     {
-                        rotTarget = -90;
+                        if (!inverted)
+                        {
+                            rotTarget = 90;
+                        }
+                        else
+                        {
+                            rotTarget = -90;
+                        }
+
                     }
 
                 }
-
             }
 
         }

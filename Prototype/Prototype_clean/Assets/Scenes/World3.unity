@@ -8216,6 +8216,11 @@ PrefabInstance:
       propertyPath: flipFlop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7822021984741513370, guid: f19f9b9f57eeea04399ffa0ca5a5d409,
+        type: 3}
+      propertyPath: requireGrounded
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f19f9b9f57eeea04399ffa0ca5a5d409, type: 3}
 --- !u!4 &1368701469 stripped
@@ -16012,6 +16017,11 @@ PrefabInstance:
     - target: {fileID: 7822021984741513370, guid: f19f9b9f57eeea04399ffa0ca5a5d409,
         type: 3}
       propertyPath: inverted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822021984741513370, guid: f19f9b9f57eeea04399ffa0ca5a5d409,
+        type: 3}
+      propertyPath: requireGrounded
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
