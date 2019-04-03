@@ -29,7 +29,7 @@ public class MoneyPickup : MonoBehaviour
 
                 MoneyCount = MoneyCount + 1;
 
-                SetMoneyText();
+             //   SetMoneyText();
             }
         }
     }

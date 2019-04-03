@@ -127,3 +127,4 @@ public class PlayerController_Backup : MonoBehaviour
         PlayerPrefs.SetInt("Money", money.MoneyCount);
     }
 }
+

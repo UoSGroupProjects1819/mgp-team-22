@@ -43,6 +43,8 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt(ArtifactTrigger2, 0);
         PlayerPrefs.SetInt(ArtifactTrigger3, 0);
         PlayerPrefs.SetString("SpawnTarget", "Home");
+
+        PlayerPrefs.SetInt("Money", 0);
     }
    
 
