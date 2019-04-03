@@ -12,6 +12,7 @@ TagManager:
   - fallDeath
   - Edge
   - Money
+  - Chest
   layers:
   - Default
   - TransparentFX

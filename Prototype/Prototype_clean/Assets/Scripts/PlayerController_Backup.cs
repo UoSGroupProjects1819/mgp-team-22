@@ -23,6 +23,8 @@ public class PlayerController_Backup : MonoBehaviour
 
     private int HP;
 
+    public MoneyPickup money;
+
     private Color Black = new Color(0f, 0f, 0f, 1f);
     private Color White = new Color(1f, 1f, 1f, 1f);
 
@@ -35,6 +37,7 @@ public class PlayerController_Backup : MonoBehaviour
         transF = GetComponent<Transform>();
         spriteRen = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        money = GetComponent<MoneyPickup>();
 
         GameMan = GameObject.Find("GameManager").GetComponent<GameManager>();
 
@@ -118,4 +121,10 @@ public class PlayerController_Backup : MonoBehaviour
         invincible = false;
         anim.SetBool("takeDamage", false);
     }
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetInt("Money", money.MoneyCount);
+    }
 }
+

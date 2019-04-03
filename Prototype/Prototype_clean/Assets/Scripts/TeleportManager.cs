@@ -8,14 +8,13 @@ public class TeleportManager : MonoBehaviour
 
     public string Destination, SpawnTargetName;
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(Destination);
         }
-
-        PlayerPrefs.SetString("SpawnTarget", SpawnTargetName);
 
     }
 

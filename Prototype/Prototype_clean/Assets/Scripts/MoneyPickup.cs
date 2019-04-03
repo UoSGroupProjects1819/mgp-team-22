@@ -14,6 +14,8 @@ public class MoneyPickup : MonoBehaviour
     private void Start()
     {
         playerCon = GetComponent<PlayerController_Backup>();
+        MoneyCount = PlayerPrefs.GetInt("Money");
+
     }
 
     void OnTriggerEnter2D(Collider2D trigger)
@@ -27,7 +29,7 @@ public class MoneyPickup : MonoBehaviour
 
                 MoneyCount = MoneyCount + 1;
 
-                SetMoneyText();
+             //   SetMoneyText();
             }
         }
     }
