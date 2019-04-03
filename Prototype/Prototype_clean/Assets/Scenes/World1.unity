@@ -21422,16 +21422,6 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 7822021984741513371, guid: f19f9b9f57eeea04399ffa0ca5a5d409,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 7.212463
-      objectReference: {fileID: 0}
-    - target: {fileID: 7822021984741513371, guid: f19f9b9f57eeea04399ffa0ca5a5d409,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 3.783028
-      objectReference: {fileID: 0}
     - target: {fileID: 7822021984741513349, guid: f19f9b9f57eeea04399ffa0ca5a5d409,
         type: 3}
       propertyPath: m_Offset.x
@@ -21451,6 +21441,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 3.7830281
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822021984741513371, guid: f19f9b9f57eeea04399ffa0ca5a5d409,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 7.212463
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822021984741513371, guid: f19f9b9f57eeea04399ffa0ca5a5d409,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.783028
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f19f9b9f57eeea04399ffa0ca5a5d409, type: 3}
@@ -57629,6 +57629,11 @@ PrefabInstance:
       propertyPath: MoneyText
       value: 
       objectReference: {fileID: 1737862382}
+    - target: {fileID: 2733813468440564714, guid: 7d555d961b590fe48844629b7840bfae,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d555d961b590fe48844629b7840bfae, type: 3}
 --- !u!1 &8935528104970903544 stripped
