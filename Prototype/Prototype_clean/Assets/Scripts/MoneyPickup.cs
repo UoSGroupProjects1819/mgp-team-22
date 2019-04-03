@@ -9,12 +9,17 @@ public class MoneyPickup : MonoBehaviour
     public Text MoneyText;
     public int MoneyCount;
 
+    private bool hasPicked;
+
     public PlayerController_Backup playerCon;
 
     private void Start()
     {
         playerCon = GetComponent<PlayerController_Backup>();
         MoneyCount = PlayerPrefs.GetInt("Money");
+        SetMoneyText();
+
+        hasPicked = false;
 
     }
 
@@ -27,11 +32,22 @@ public class MoneyPickup : MonoBehaviour
             {
                 trigger.gameObject.SetActive(false);
 
-                MoneyCount = MoneyCount + 1;
 
-             //   SetMoneyText();
+                if (!hasPicked)
+                {
+                    MoneyCount = MoneyCount + 1;
+                    hasPicked = true;
+                }
+
+
+                SetMoneyText();
             }
         }
+    }
+
+    private void Update()
+    {
+        hasPicked = false;
     }
 
     void SetMoneyText()

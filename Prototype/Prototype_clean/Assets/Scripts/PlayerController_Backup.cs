@@ -72,6 +72,15 @@ public class PlayerController_Backup : MonoBehaviour
             rb2d.AddForce(knockBackDirection.normalized * knockBackForce);
             takeDamage();
         }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Teleporter")
+        {
+            PlayerPrefs.SetInt("Money", money.MoneyCount);
+        }
     }
 
     //public void bounceMovement()
@@ -122,9 +131,5 @@ public class PlayerController_Backup : MonoBehaviour
         anim.SetBool("takeDamage", false);
     }
 
-    private void OnDestroy()
-    {
-        PlayerPrefs.SetInt("Money", money.MoneyCount);
-    }
 }
 
