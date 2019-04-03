@@ -20014,6 +20014,11 @@ PrefabInstance:
       propertyPath: resetTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2522108873963257352, guid: f8bc77bf2b3f02e43b592ec267dc4280,
+        type: 3}
+      propertyPath: platformDetectsPlayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8bc77bf2b3f02e43b592ec267dc4280, type: 3}
 --- !u!4 &862960077 stripped
@@ -23215,7 +23220,7 @@ PrefabInstance:
     - target: {fileID: 4336850697912441954, guid: 8d92b9d9f34678749a796edb325bbdde,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.09375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4336850697912441954, guid: 8d92b9d9f34678749a796edb325bbdde,
         type: 3}
@@ -34590,6 +34595,11 @@ PrefabInstance:
       propertyPath: detectPlayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2522108873963257352, guid: f8bc77bf2b3f02e43b592ec267dc4280,
+        type: 3}
+      propertyPath: platformDetectsPlayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8bc77bf2b3f02e43b592ec267dc4280, type: 3}
 --- !u!4 &1505326907 stripped
@@ -39251,6 +39261,11 @@ PrefabInstance:
       propertyPath: detectPlayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2522108873963257352, guid: f8bc77bf2b3f02e43b592ec267dc4280,
+        type: 3}
+      propertyPath: platformDetectsPlayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8bc77bf2b3f02e43b592ec267dc4280, type: 3}
 --- !u!4 &1715714287 stripped
@@ -42958,6 +42973,11 @@ PrefabInstance:
     - target: {fileID: 2522108873963257352, guid: f8bc77bf2b3f02e43b592ec267dc4280,
         type: 3}
       propertyPath: detectPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522108873963257352, guid: f8bc77bf2b3f02e43b592ec267dc4280,
+        type: 3}
+      propertyPath: platformDetectsPlayer
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

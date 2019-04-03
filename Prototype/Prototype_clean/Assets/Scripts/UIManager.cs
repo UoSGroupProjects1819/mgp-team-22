@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
 
     public Text hpText;
 
-    public string ArtifactTrigger1, ArtifactTrigger2;
+    public string ArtifactTrigger1, ArtifactTrigger2, ArtifactTrigger3;
 
     public void SetGameManager(GameManager game)
     {
@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
     {
         PlayerPrefs.SetInt(ArtifactTrigger1, 0);
         PlayerPrefs.SetInt(ArtifactTrigger2, 0);
+        PlayerPrefs.SetInt(ArtifactTrigger3, 0);
         PlayerPrefs.SetString("SpawnTarget", "Home");
     }
    
