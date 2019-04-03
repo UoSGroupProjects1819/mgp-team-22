@@ -8,6 +8,8 @@ public class SpawnManager : MonoBehaviour
     private Transform playerTransform;
     public Transform homeLocation, TeleporterLocation;
 
+
+
     private Vector3 HomePos, TelPos, respawnPos;
 
     private string spawnTarget;
@@ -17,11 +19,7 @@ public class SpawnManager : MonoBehaviour
     {
         playerTransform = GetComponent<Transform>();
         spawnTarget = PlayerPrefs.GetString("SpawnTarget");
-
-
-
-   
-
+        
         HomePos = homeLocation.position;
         TelPos = TeleporterLocation.position;
 
