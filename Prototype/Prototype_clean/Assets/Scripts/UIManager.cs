@@ -64,6 +64,20 @@ public class UIManager : MonoBehaviour
         player.GetComponent<Movement>().ToggleFly();
     }
 
+    public void UnlockArtifact1()
+    {
+        PlayerPrefs.SetInt(ArtifactTrigger1, 1);
+    }
+
+    public void UnlockArtifact2()
+    {
+        PlayerPrefs.SetInt(ArtifactTrigger2, 1);
+    }
+
+    public void UnlockArtifact3()
+    {
+        PlayerPrefs.SetInt(ArtifactTrigger3, 1);
+    }
 
     // Update is called once per frame
     void Update()
