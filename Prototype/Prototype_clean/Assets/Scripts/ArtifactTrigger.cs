@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ArtifactTrigger : MonoBehaviour
 {
-    public string Trigger1;
+    public string Trigger;
     public AudioClip pickupSound;
 
     public GameObject hum;
@@ -23,7 +23,7 @@ public class ArtifactTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Player"))
         {
-            PlayerPrefs.SetInt(Trigger1, 1);
+            PlayerPrefs.SetInt(Trigger, 1);
             particleSys.Play();
             foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>()) sprite.enabled = false;
 
