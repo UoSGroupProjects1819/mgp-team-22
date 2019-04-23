@@ -32,6 +32,11 @@ public class RespawnManager : MonoBehaviour
             playerTransform.position = currentRespawn;
           //  print("death triggered");
         }
+
+        //if (collision.gameObject.tag == "Teleporter")
+        //{
+        //    PlayerPrefs.SetString("SpawnTarget", "Teleporter");
+        //}
     }
 
 }

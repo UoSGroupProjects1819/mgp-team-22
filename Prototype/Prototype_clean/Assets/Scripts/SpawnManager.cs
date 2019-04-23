@@ -34,6 +34,7 @@ public class SpawnManager : MonoBehaviour
                 return;
 
             case "Teleporter":
+
                 playerTransform.position = TelPos;
                 PlayerPrefs.SetFloat("respawn X", transform.position.x);
                 PlayerPrefs.SetFloat("respawn Y", transform.position.y);
@@ -41,6 +42,7 @@ public class SpawnManager : MonoBehaviour
                 return;
 
             case "Checkpoint":
+                print("teleporter");
                 respawnPos.x = PlayerPrefs.GetFloat("respawn X");
                 respawnPos.y = PlayerPrefs.GetFloat("respawn Y");
                 respawnPos.z = PlayerPrefs.GetFloat("respawn Z");
