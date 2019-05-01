@@ -6,22 +6,28 @@ public class RespawnManager : MonoBehaviour
 {
     private Transform playerTransform;
     private Vector3 currentRespawn;
+    private RotateManager rotMan;
+    private Movement playerCon;
 
     private void Start()
     {
         currentRespawn = transform.position;
         playerTransform = GetComponent<Transform>();
+        rotMan = GameObject.FindObjectOfType<RotateManager>();
+        playerCon = GetComponent<Movement>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Respawn")
         {
-
-            PlayerPrefs.SetFloat("respawn X", transform.position.x);
-            PlayerPrefs.SetFloat("respawn Y", transform.position.y);
-            PlayerPrefs.SetFloat("respawn Z", transform.position.z);
-            PlayerPrefs.SetString("SpawnTarget", "Checkpoint"); 
+            if (playerCon.grounded == true)
+            {
+                PlayerPrefs.SetFloat("respawn X", transform.position.x);
+                PlayerPrefs.SetFloat("respawn Y", transform.position.y);
+                PlayerPrefs.SetFloat("respawn Z", transform.position.z);
+                PlayerPrefs.SetString("SpawnTarget", "Checkpoint");
+            }
 
             currentRespawn = transform.position;
             print("spawn saved");
@@ -30,7 +36,8 @@ public class RespawnManager : MonoBehaviour
         if (collision.gameObject.tag == "fallDeath")
         {
             playerTransform.position = currentRespawn;
-          //  print("death triggered");
+            //rotMan.Rotate();
+            //  print("death triggered");
         }
 
         //if (collision.gameObject.tag == "Teleporter")

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1989433523603647342}
   m_Layer: 0
   m_Name: RotateTrigger
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,9 @@ MonoBehaviour:
   GravityDirection: 3
   flipFlop: 1
   inverted: 0
+  requireGrounded: 0
+  rotationSpeed: 3
+  cooldown: 0
   thingsToRotate: {fileID: 0}
   player: {fileID: 0}
 --- !u!61 &7822021984741513349
