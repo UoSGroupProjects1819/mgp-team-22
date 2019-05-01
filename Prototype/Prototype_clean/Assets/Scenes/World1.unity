@@ -25282,6 +25282,11 @@ PrefabInstance:
       propertyPath: Trigger1
       value: Artifact2
       objectReference: {fileID: 0}
+    - target: {fileID: 4336850697912441952, guid: 8d92b9d9f34678749a796edb325bbdde,
+        type: 3}
+      propertyPath: Trigger
+      value: Artifact2
+      objectReference: {fileID: 0}
     - target: {fileID: 1303573201, guid: 8d92b9d9f34678749a796edb325bbdde, type: 3}
       propertyPath: m_Text
       value: Purity is tainted as corruption festers...
