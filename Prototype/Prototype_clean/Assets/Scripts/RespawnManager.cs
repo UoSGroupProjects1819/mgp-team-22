@@ -8,6 +8,7 @@ public class RespawnManager : MonoBehaviour
     private Vector3 currentRespawn;
     private RotateManager rotMan;
     private Movement playerCon;
+    private Transform lastCheckPoint;
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class RespawnManager : MonoBehaviour
         playerTransform = GetComponent<Transform>();
         rotMan = GameObject.FindObjectOfType<RotateManager>();
         playerCon = GetComponent<Movement>();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,13 +31,15 @@ public class RespawnManager : MonoBehaviour
                 PlayerPrefs.SetString("SpawnTarget", "Checkpoint");
             }
 
-            currentRespawn = transform.position;
+            //currentRespawn = transform.position;
+            lastCheckPoint = collision.gameObject.transform;
             print("spawn saved");
         }
 
         if (collision.gameObject.tag == "fallDeath")
         {
-            playerTransform.position = currentRespawn;
+
+            playerTransform.position = lastCheckPoint.position;
             //rotMan.Rotate();
             //  print("death triggered");
         }
