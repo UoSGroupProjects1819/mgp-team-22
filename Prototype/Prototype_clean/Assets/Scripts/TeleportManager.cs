@@ -13,10 +13,16 @@ public class TeleportManager : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            PlayerPrefs.SetString("SpawnTarget", SpawnTargetName);
             SceneManager.LoadScene(Destination);
+
         }
 
+
+
     }
+    
+
 
 
 
