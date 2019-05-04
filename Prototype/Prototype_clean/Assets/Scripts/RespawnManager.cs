@@ -9,6 +9,11 @@ public class RespawnManager : MonoBehaviour
     private RotateManager rotMan;
     private Movement playerCon;
     private Transform lastCheckPoint;
+    private Rigidbody2D rb2d;
+    private bool onCooldown = false;
+
+    private float gravReset;
+
 
     private void Start()
     {
@@ -16,6 +21,7 @@ public class RespawnManager : MonoBehaviour
         playerTransform = GetComponent<Transform>();
         rotMan = GameObject.FindObjectOfType<RotateManager>();
         playerCon = GetComponent<Movement>();
+        rb2d = GetComponent<Rigidbody2D>();
 
     }
 
@@ -25,10 +31,15 @@ public class RespawnManager : MonoBehaviour
         {
             if (playerCon.grounded == true)
             {
+                // save respawn
                 PlayerPrefs.SetFloat("respawn X", transform.position.x);
                 PlayerPrefs.SetFloat("respawn Y", transform.position.y);
                 PlayerPrefs.SetFloat("respawn Z", transform.position.z);
                 PlayerPrefs.SetString("SpawnTarget", "Checkpoint");
+
+                // save rotation
+                rotMan.SaveGrav();
+
             }
 
             //currentRespawn = transform.position;
@@ -38,9 +49,11 @@ public class RespawnManager : MonoBehaviour
 
         if (collision.gameObject.tag == "fallDeath")
         {
-
+       //     StartCoroutine(freezeTime());
+          //  rotMan.LoadGrav();
+          //  rotMan.RotateNow();
             playerTransform.position = lastCheckPoint.position;
-            //rotMan.Rotate();
+            rb2d.velocity = new Vector3(0, 0, 0);
             //  print("death triggered");
         }
 
@@ -50,4 +63,12 @@ public class RespawnManager : MonoBehaviour
         //}
     }
 
+    public IEnumerator freezeTime()
+    {
+     //   gravReset = rb2d.gravityScale;
+        rb2d.gravityScale = 0;
+        rb2d.velocity = new Vector3(0,0,0);
+        yield return new WaitForSeconds(3F);
+        rb2d.gravityScale = 3;
+    }
 }

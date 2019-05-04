@@ -23,6 +23,7 @@ public class SpawnManager : MonoBehaviour
         HomePos = homeLocation.position;
         TelPos = TeleporterLocation.position;
 
+
         switch (spawnTarget)
         {
 

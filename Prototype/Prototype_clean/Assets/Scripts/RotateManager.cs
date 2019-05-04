@@ -6,6 +6,9 @@ public class RotateManager : MonoBehaviour
 {
     public enum gravityDirection { up, down, left, right }
     public gravityDirection GravityDirection = gravityDirection.down;
+
+    private gravityDirection saveGrav = gravityDirection.down;
+
     public bool flipFlop;
     public bool inverted;
     public bool requireGrounded;
@@ -66,6 +69,36 @@ public class RotateManager : MonoBehaviour
         onCooldown = false;
     }
 
+    public void RotateNow()
+    {
+        switch (GravityDirection)
+        {
+            case gravityDirection.up:
+                rotTarget = 180;
+                RotateSaver.gravSave = RotateSaver.GravitySave.up;
+                //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1) , 180);
+                break;
+
+            case gravityDirection.right:
+                rotTarget = -90;
+                RotateSaver.gravSave = RotateSaver.GravitySave.right;
+                //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -90);
+                break;
+
+            case gravityDirection.down:
+                RotateSaver.gravSave = RotateSaver.GravitySave.down;
+                rotTarget = 0;
+                //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 0);
+                break;
+
+            case gravityDirection.left:
+                rotTarget = 90;
+                RotateSaver.gravSave = RotateSaver.GravitySave.left;
+                //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 90);
+                break;
+        }
+    }
+    
     public void Rotate()
     {
         if (!onCooldown)
@@ -77,32 +110,8 @@ public class RotateManager : MonoBehaviour
             {
                 if (!flipFlop)
                 {
-                    switch (GravityDirection)
-                    {
-                        case gravityDirection.up:
-                            rotTarget = 180;
-                            RotateSaver.gravSave = RotateSaver.GravitySave.up;
-                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1) , 180);
-                            break;
 
-                        case gravityDirection.right:
-                            rotTarget = -90;
-                            RotateSaver.gravSave = RotateSaver.GravitySave.right;
-                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -90);
-                            break;
-
-                        case gravityDirection.down:
-                            RotateSaver.gravSave = RotateSaver.GravitySave.down;
-                            rotTarget = 0;
-                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 0);
-                            break;
-
-                        case gravityDirection.left:
-                            rotTarget = 90;
-                            RotateSaver.gravSave = RotateSaver.GravitySave.left;
-                            //thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 90);
-                            break;
-                    }
+                    RotateNow();
                 }
 
                 if (flipFlop)
@@ -146,6 +155,17 @@ public class RotateManager : MonoBehaviour
             Rotate();
         }
     }
+
+    public void SaveGrav()
+    {
+        saveGrav = GravityDirection;
+    }
+
+    public void LoadGrav()
+    {
+        GravityDirection = saveGrav;
+    }
+
 }
 
 
