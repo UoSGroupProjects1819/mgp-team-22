@@ -29,8 +29,8 @@ public class RespawnManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Respawn")
         {
-            if (playerCon.grounded == true)
-            {
+  //          if (playerCon.grounded == true)
+  //          {
                 // save respawn
                 PlayerPrefs.SetFloat("respawn X", transform.position.x);
                 PlayerPrefs.SetFloat("respawn Y", transform.position.y);
@@ -40,7 +40,7 @@ public class RespawnManager : MonoBehaviour
                 // save rotation
                 rotMan.SaveGrav();
 
-            }
+   //         }
 
             //currentRespawn = transform.position;
             lastCheckPoint = collision.gameObject.transform;
