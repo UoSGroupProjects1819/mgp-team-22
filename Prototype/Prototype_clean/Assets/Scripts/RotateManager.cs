@@ -166,6 +166,28 @@ public class RotateManager : MonoBehaviour
         GravityDirection = saveGrav;
     }
 
+    public void SetGrav()
+    {
+        switch (GravityDirection)
+        {
+            case gravityDirection.up:
+                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1) , 180);
+                break;
+
+            case gravityDirection.right:
+                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), -90);
+                break;
+
+            case gravityDirection.down:
+                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 0);
+                break;
+
+            case gravityDirection.left:
+                thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 90);
+                break;
+        }
+    }
+
 }
 
 

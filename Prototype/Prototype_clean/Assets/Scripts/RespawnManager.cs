@@ -50,8 +50,8 @@ public class RespawnManager : MonoBehaviour
         if (collision.gameObject.tag == "fallDeath")
         {
        //     StartCoroutine(freezeTime());
-          //  rotMan.LoadGrav();
-          //  rotMan.RotateNow();
+            rotMan.LoadGrav();
+            rotMan.SetGrav();
             playerTransform.position = lastCheckPoint.position;
             rb2d.velocity = new Vector3(0, 0, 0);
             //  print("death triggered");
