@@ -168,6 +168,8 @@ public class RotateManager : MonoBehaviour
 
     public void SetGrav()
     {
+        if (saveGrav == GravityDirection) return;
+
         switch (GravityDirection)
         {
             case gravityDirection.up:
