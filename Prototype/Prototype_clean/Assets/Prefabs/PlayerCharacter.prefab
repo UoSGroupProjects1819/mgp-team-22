@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463001790}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.009, y: 0.966, z: 0.25}
-  m_LocalScale: {x: 1.1159555, y: 2.6289308, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071065, w: 0.7071071}
+  m_LocalPosition: {x: -0.009, y: 1.028, z: 0.25}
+  m_LocalScale: {x: 0.3, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 7584475608120671771}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
 --- !u!212 &1463001791
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e38b60b47f8b1354f979f270a645450b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1583eba466041d439ab46c7257e7c1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,14 +97,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 4, y: 4.15}
   m_EdgeRadius: 0
 --- !u!1 &1504946422
 GameObject:
@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 1504946422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.749, y: -0.026, z: 0.25}
-  m_LocalScale: {x: 3.249435, y: 1.5656334, z: 1}
+  m_LocalScale: {x: -0.3, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 7584475608120671771}
   m_RootOrder: 2
@@ -175,7 +175,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e38b60b47f8b1354f979f270a645450b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1583eba466041d439ab46c7257e7c1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -203,14 +203,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 3.08, y: 3.2}
   m_EdgeRadius: 0
 --- !u!1 &1838533283
 GameObject:
@@ -237,13 +237,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838533283}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.004, y: -0.906, z: 0.25}
-  m_LocalScale: {x: 1.3228072, y: 1.2213976, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.70710677}
+  m_LocalPosition: {x: 0.0039998246, y: -0.906, z: 0.25}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 7584475608120671771}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
 --- !u!212 &1838533284
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -281,7 +281,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e38b60b47f8b1354f979f270a645450b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1583eba466041d439ab46c7257e7c1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -309,14 +309,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 2.22, y: 3.61}
   m_EdgeRadius: 0
 --- !u!1 &2050636660
 GameObject:
@@ -704,6 +704,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: c1b3f1e7c1473c442abf4e24460d3221, type: 3}
   GameMan: {fileID: 0}
   firing: 0
+  money: {fileID: 0}
 --- !u!114 &7724914401035406934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,6 +768,7 @@ MonoBehaviour:
   gameMan: {fileID: 0}
   MoneyText: {fileID: 0}
   MoneyCount: 0
+  playerCon: {fileID: 0}
 --- !u!1 &2424651966794548205
 GameObject:
   m_ObjectHideFlags: 0
