@@ -10103,15 +10103,15 @@ PrefabInstance:
       propertyPath: chaser
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 5945221521199871584, guid: 1b0ee7cd288ad6742859549a72706cd2,
         type: 3}
       propertyPath: m_Radius
       value: 18.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
@@ -10988,15 +10988,15 @@ PrefabInstance:
       propertyPath: chaser
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 5945221521199871584, guid: 1b0ee7cd288ad6742859549a72706cd2,
         type: 3}
       propertyPath: m_Radius
       value: 18.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
@@ -21418,6 +21418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1173790932}
+  - component: {fileID: 1173790933}
   m_Layer: 0
   m_Name: Things To Rotate
   m_TagString: Untagged
@@ -21479,6 +21480,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1173790933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173790931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753f081e4efdf694b8e09d1c17879a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GravityDirection: 1
+  flipFlop: 0
+  inverted: 0
+  requireGrounded: 0
+  rotationSpeed: 3
+  cooldown: 0
+  thingsToRotate: {fileID: 1173790931}
+  player: {fileID: 705690721}
 --- !u!1 &1177737862
 GameObject:
   m_ObjectHideFlags: 0
@@ -22496,15 +22517,15 @@ PrefabInstance:
       propertyPath: chaser
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 5945221521199871584, guid: 1b0ee7cd288ad6742859549a72706cd2,
         type: 3}
       propertyPath: m_Radius
       value: 18.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
@@ -25450,15 +25471,15 @@ PrefabInstance:
       propertyPath: chaser
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 5945221521199871584, guid: 1b0ee7cd288ad6742859549a72706cd2,
         type: 3}
       propertyPath: m_Radius
       value: 18.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
@@ -26619,15 +26640,15 @@ PrefabInstance:
       propertyPath: chaser
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 5945221521199871584, guid: 1b0ee7cd288ad6742859549a72706cd2,
         type: 3}
       propertyPath: m_Radius
       value: 18.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
@@ -34312,15 +34333,15 @@ PrefabInstance:
       propertyPath: chaser
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 5945221521199871584, guid: 1b0ee7cd288ad6742859549a72706cd2,
         type: 3}
       propertyPath: m_Radius
       value: 18.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316714025497890069, guid: 1b0ee7cd288ad6742859549a72706cd2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0ee7cd288ad6742859549a72706cd2, type: 3}
