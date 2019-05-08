@@ -52,7 +52,7 @@ public class MoneyPickup : MonoBehaviour
 
     void SetMoneyText()
     {
-        print(MoneyCount);
+     //   print(MoneyCount);
         MoneyText.text = " " + MoneyCount.ToString();
     }
 }

@@ -44,7 +44,7 @@ public class RespawnManager : MonoBehaviour
 
             //currentRespawn = transform.position;
             lastCheckPoint = collision.gameObject.transform;
-            print("spawn saved");
+         //   print("spawn saved");
         }
 
         if (collision.gameObject.tag == "fallDeath")
