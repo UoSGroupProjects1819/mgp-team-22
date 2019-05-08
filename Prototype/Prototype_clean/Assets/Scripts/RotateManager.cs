@@ -116,6 +116,8 @@ public class RotateManager : MonoBehaviour
 
                 if (flipFlop)
                 {
+                    FlipGrav();
+
                     float horiz = Input.GetAxisRaw("Horizontal");
 
                     if (horiz > 0)
@@ -188,6 +190,29 @@ public class RotateManager : MonoBehaviour
                 thingsToRotate.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), 90);
                 break;
         }
+    }
+
+    void FlipGrav()
+    {
+        switch (GravityDirection)
+        {
+            case gravityDirection.up:
+                GravityDirection = gravityDirection.down;
+                break;
+
+            case gravityDirection.right:
+                GravityDirection = gravityDirection.left;
+                break;
+
+            case gravityDirection.down:
+                GravityDirection = gravityDirection.up;
+                break;
+
+            case gravityDirection.left:
+                GravityDirection = gravityDirection.right;
+                break;
+        }
+
     }
 
 }
