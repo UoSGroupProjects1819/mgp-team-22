@@ -7,6 +7,7 @@ public class MenuScript : MonoBehaviour
 {
     public void PlayGame ()
     {
+        PlayerPrefs.SetString("SpawnTarget", "Resume");
         SceneManager.LoadScene("World1");
     }
 
