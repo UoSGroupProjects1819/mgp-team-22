@@ -103,6 +103,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.856586
       objectReference: {fileID: 0}
+    - target: {fileID: 682133549338958963, guid: 72c3258ae58f61b49a27c4f78e29662b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 187941047, guid: 72c3258ae58f61b49a27c4f78e29662b, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -160,7 +165,7 @@ PrefabInstance:
     - target: {fileID: 4260769299471805358, guid: 72c3258ae58f61b49a27c4f78e29662b,
         type: 3}
       propertyPath: lengthInSec
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4260769299471805358, guid: 72c3258ae58f61b49a27c4f78e29662b,
         type: 3}
@@ -312,10 +317,10 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 682133549338958963, guid: 72c3258ae58f61b49a27c4f78e29662b,
+    - target: {fileID: 4260769299471805358, guid: 72c3258ae58f61b49a27c4f78e29662b,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72c3258ae58f61b49a27c4f78e29662b, type: 3}
