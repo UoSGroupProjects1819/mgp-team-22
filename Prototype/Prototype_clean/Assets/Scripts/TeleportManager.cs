@@ -13,6 +13,10 @@ public class TeleportManager : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            PlayerPrefs.SetFloat("respawn X", transform.position.x);
+            PlayerPrefs.SetFloat("respawn Y", transform.position.y);
+            PlayerPrefs.SetFloat("respawn Z", transform.position.z);
+
             PlayerPrefs.SetString("SpawnTarget", SpawnTargetName);
             SceneManager.LoadScene(Destination);
 

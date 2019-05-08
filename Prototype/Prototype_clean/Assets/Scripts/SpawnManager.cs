@@ -53,6 +53,14 @@ public class SpawnManager : MonoBehaviour
                 }
                 return;
 
+            case "Resume":
+                    respawnPos.x = PlayerPrefs.GetFloat("respawn X");
+                    respawnPos.y = PlayerPrefs.GetFloat("respawn Y");
+                    respawnPos.z = PlayerPrefs.GetFloat("respawn Z");
+                    playerTransform.position = respawnPos;
+                
+                return;
+
         }
 
 
