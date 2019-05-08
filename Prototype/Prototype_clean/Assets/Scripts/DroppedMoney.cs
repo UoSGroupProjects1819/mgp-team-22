@@ -5,7 +5,7 @@ using UnityEngine;
 public class DroppedMoney : MonoBehaviour
 {
     public GameObject coin;
-    public int PooledAmount = 10;
+    public int PooledAmount = 50;
     public List<GameObject> coins;
 
     void Start()
