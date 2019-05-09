@@ -18,6 +18,7 @@ public class TeleportManager : MonoBehaviour
             PlayerPrefs.SetFloat("respawn Z", transform.position.z);
 
             PlayerPrefs.SetString("SpawnTarget", SpawnTargetName);
+            PlayerPrefs.SetString("SpawnWorld", Destination);
             SceneManager.LoadScene(Destination);
 
         }

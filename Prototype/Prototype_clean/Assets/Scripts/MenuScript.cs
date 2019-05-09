@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
+    private string DestinationWorld;
     public void PlayGame ()
     {
         PlayerPrefs.SetString("SpawnTarget", "Resume");
+        DestinationWorld = PlayerPrefs.GetString("SpawnWorld");
         SceneManager.LoadScene("World1");
     }
 
